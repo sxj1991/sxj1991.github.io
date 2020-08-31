@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo静态博客 | 此心安处是吾乡</title>
+  <title>Mysql基础（索引、视图、存储引擎） | 此心安处是吾乡</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="搭建环境： nodejs安装 git分布式项目管理安装 github项目创建">
+  <meta name="description" content="黑马数据库网课补充： 网课三天的数据库知识，只是针对开发常用的，有部分概念没有讲。 实际工作环境中专门的DBA数据库管理人员维护。 个人好奇心所致，把没讲相对重要的三个知识点进行概要补充。   索引 索引概述：存储引擎用于快速找到记录的一种数据结构。（创建主键会附带索引） 索引的优势&#x2F;劣势: 优势： 减少查询需要扫描的数据量(加快了查询速度) 减少服务器的排序操作和创建临时表的操作(加快了grou">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo静态博客">
-<meta property="og:url" content="http://yoursite.com/2020/08/30/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:title" content="Mysql基础（索引、视图、存储引擎）">
+<meta property="og:url" content="http://yoursite.com/2020/08/31/Mysql%E5%9F%BA%E7%A1%80%EF%BC%88%E7%B4%A2%E5%BC%95%E3%80%81%E8%A7%86%E5%9B%BE%E3%80%81%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%EF%BC%89/index.html">
 <meta property="og:site_name" content="此心安处是吾乡">
-<meta property="og:description" content="搭建环境： nodejs安装 git分布式项目管理安装 github项目创建">
+<meta property="og:description" content="黑马数据库网课补充： 网课三天的数据库知识，只是针对开发常用的，有部分概念没有讲。 实际工作环境中专门的DBA数据库管理人员维护。 个人好奇心所致，把没讲相对重要的三个知识点进行概要补充。   索引 索引概述：存储引擎用于快速找到记录的一种数据结构。（创建主键会附带索引） 索引的优势&#x2F;劣势: 优势： 减少查询需要扫描的数据量(加快了查询速度) 减少服务器的排序操作和创建临时表的操作(加快了grou">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-08-30T08:18:15.000Z">
-<meta property="article:modified_time" content="2020-08-31T13:48:20.936Z">
+<meta property="article:published_time" content="2020-08-31T14:11:10.000Z">
+<meta property="article:modified_time" content="2020-08-31T14:12:17.921Z">
 <meta property="article:author" content="sheepSun">
-<meta property="article:tag" content="hexo博客框架">
+<meta property="article:tag" content="mysql相关概念">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="此心安处是吾乡" type="application/atom+xml">
@@ -155,32 +155,71 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-我的第一篇博客" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Mysql基础（索引、视图、存储引擎）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hexo静态博客
+      Mysql基础（索引、视图、存储引擎）
     </h1>
   
 
         
-        <a href="/2020/08/30/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2020-08-30T08:18:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-30</time>
+        <a href="/2020/08/31/Mysql%E5%9F%BA%E7%A1%80%EF%BC%88%E7%B4%A2%E5%BC%95%E3%80%81%E8%A7%86%E5%9B%BE%E3%80%81%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2020-08-31T14:11:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-31</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li>搭建环境：<ul>
-<li>nodejs安装</li>
-<li>git分布式项目管理安装</li>
-<li>github项目创建</li>
+        <h3 id="黑马数据库网课补充："><a href="#黑马数据库网课补充：" class="headerlink" title="黑马数据库网课补充："></a>黑马数据库网课补充：</h3><ul>
+<li>网课三天的数据库知识，只是针对开发常用的，有部分概念没有讲。</li>
+<li>实际工作环境中专门的DBA数据库管理人员维护。</li>
+<li>个人好奇心所致，把没讲相对重要的三个知识点进行概要补充。</li>
 </ul>
+<hr>
+<h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><ul>
+<li>索引概述：存储引擎用于快速找到记录的一种数据结构。（创建主键会附带索引）</li>
+<li>索引的优势/劣势:<ol>
+<li>优势：<ul>
+<li>减少查询需要扫描的数据量(加快了查询速度)</li>
+<li>减少服务器的排序操作和创建临时表的操作(加快了groupby和orderby等操作)</li>
+<li>将服务器的随机IO变为顺序IO(加快查询速度)</li>
+</ul>
+</li>
+<li>劣势：<ul>
+<li>索引占用磁盘或者内存空间</li>
+<li>减慢了插入更新操作的速度（索引DML操作之后也需要维护）</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>什么时候需要索引？<br><font color='#00dd00'> 1. 数据量比较大的时候。</font><br><font color='#00dd00'>2. 数据库数据DML语句操作很少，不需要频繁维护索引。</font><br><font color='#00dd00'>3. 数据库某表的某个字段频繁需要where条件筛选的时候。</font></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h3><ul>
+<li><font color='#00dd00'> 视图概念：视图是基于 SQL 语句的结果集的可视化的表，即视图是一个虚拟存在的表，可以包含表的全部或者部分记录，也可以由一个表或者多个表来创建。</font>使用视图就可以不用看到数据表中的所有数据，而是只想得到所需的数据。当我们创建一个视图的时候，实际上是在数据库里执行了SELECT语句，SELECT语句包含了字段名称、函数、运算符，来给用户显示数据。 视图的数据是依赖原来表中的数据的，所以原来的表的数据发生了改变，那么显示的视图的数据也会跟着改变，视图实际上是由预定义的查询形式的表所组成的。</li>
+<li>使用视图的目的：<ol>
+<li>简单：使用视图的用户完全不需要关心后面对应的表的结构、关联条件和筛选条件，对用户来说已经是过滤好的复合条件的结果集。</li>
+<li>安全：使用视图的用户只能访问他们被允许查询的结果集，对表的权限管理并不能限制到某个行某个列，但是通过视图就可以简单的实现。</li>
+<li>数据独立：一旦视图的结构确定了，可以屏蔽表结构变化对用户的影响，源表增加列对视图没有影响；源表修改列名，则可以通过修改视图来解决，不会造成对访问者的影响。</li>
+<li><font color='#00dd00'>  总而言之，使用视图的大部分情况是为了保障数据安全性，提高查询效率。</font></li>
+</ol>
+</li>
+</ul>
+<hr>
+<h3 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h3><ul>
+<li>存储引擎概念：MySQL中的数据用各种不同的技术存储在文件(或者内存)中。这些技术中的每一种技术都使用不同的存储机制、索引技巧、锁定水平并且最终提供广泛的不同的功能和能力。</li>
+<li>需要了解的三种数据引擎：<ol>
+<li>InnoDB：<font color='#00dd00'> InnoDB是一个健壮的事务型存储引擎，</font>这种存储引擎已经被很多互联网公司使用，为用户操作非常大的数据存储提供了一个强大的解决方案。</li>
+<li>MyISAM：MyISAM表是独立于操作系统的，这说明可以轻松地将其从Windows服务器移植到Linux服务器。每当我们建立一个MyISAM引擎的表时，就会在本地磁盘上建立三个文件，文件名就是表名。（frm存储表定义 myd储存数据 myi存储索引）</li>
+<li>MEMORY：使用MySQL Memory存储引擎的出发点是速度，为得到最快的响应时间，采用的逻辑存储介质是系统内存。虽然在内存中存储表数据确实会提供很高的性能，但当mysqld守护进程崩溃时，所有的Memory数据都会丢失。</li>
+</ol>
 </li>
 </ul>
 
@@ -217,7 +256,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">hexo博客框架</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">mysql相关概念</a>
         		</li>
       		
 		</ul>
@@ -273,7 +312,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/08/30/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/08/31/Mysql%E5%9F%BA%E7%A1%80%EF%BC%88%E7%B4%A2%E5%BC%95%E3%80%81%E8%A7%86%E5%9B%BE%E3%80%81%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%EF%BC%89/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -285,6 +324,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2020/08/30/Hexo%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hexo静态博客</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -406,6 +455,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">hexo博客框架</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">mysql相关概念</a>
               </li>
             
             <div class="clearfix"></div>
