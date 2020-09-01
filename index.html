@@ -82,11 +82,7 @@
 		        
 					<a class="twitter" target="_blank" href="https://twitter.com/sunxj1991" title="twitter"><i class="icon-twitter"></i></a>
 		        
-					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-		        
 					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/sun-xiao-jian-2-74" title="zhihu"><i class="icon-zhihu"></i></a>
-		        
-					<a class="mail" target="_blank" href="/565260908@163.com" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
 		</nav>
@@ -123,11 +119,7 @@
 			        
 						<a class="twitter" target="_blank" href="https://twitter.com/sunxj1991" title="twitter"><i class="icon-twitter"></i></a>
 			        
-						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-			        
 						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/sun-xiao-jian-2-74" title="zhihu"><i class="icon-zhihu"></i></a>
-			        
-						<a class="mail" target="_blank" href="/565260908@163.com" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
@@ -174,53 +166,14 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="黑马数据库网课补充："><a href="#黑马数据库网课补充：" class="headerlink" title="黑马数据库网课补充："></a>黑马数据库网课补充：</h3><ul>
-<li>网课三天的数据库知识，只是针对开发常用的，有部分概念没有讲。</li>
-<li>实际工作环境中专门的DBA数据库管理人员维护。</li>
-<li>个人好奇心所致，把没讲相对重要的三个知识点进行概要补充。</li>
-</ul>
-<hr>
-<h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><ul>
-<li>索引概述：存储引擎用于快速找到记录的一种数据结构。（创建主键会附带索引）</li>
-<li>索引的优势/劣势:<ol>
-<li>优势：<ul>
-<li>减少查询需要扫描的数据量(加快了查询速度)</li>
-<li>减少服务器的排序操作和创建临时表的操作(加快了groupby和orderby等操作)</li>
-<li>将服务器的随机IO变为顺序IO(加快查询速度)</li>
-</ul>
+<li><p>网课三天的数据库知识，只是针对开发常用的，有部分概念没有讲。</p>
 </li>
-<li>劣势：<ul>
-<li>索引占用磁盘或者内存空间</li>
-<li>减慢了插入更新操作的速度（索引DML操作之后也需要维护）</li>
-</ul>
+<li><p>实际工作环境中专门的DBA数据库管理人员维护。</p>
 </li>
-</ol>
-<ul>
-<li>什么时候需要索引？<br><font color='#00dd00'> 1. 数据量比较大的时候。</font><br><font color='#00dd00'>2. 数据库数据DML语句操作很少，不需要频繁维护索引。</font><br><font color='#00dd00'>3. 数据库某表的某个字段频繁需要where条件筛选的时候。</font></li>
-</ul>
-</li>
-</ul>
-<hr>
-<h3 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h3><ul>
-<li><font color='#00dd00'> 视图概念：视图是基于 SQL 语句的结果集的可视化的表，即视图是一个虚拟存在的表，可以包含表的全部或者部分记录，也可以由一个表或者多个表来创建。</font>使用视图就可以不用看到数据表中的所有数据，而是只想得到所需的数据。当我们创建一个视图的时候，实际上是在数据库里执行了SELECT语句，SELECT语句包含了字段名称、函数、运算符，来给用户显示数据。 视图的数据是依赖原来表中的数据的，所以原来的表的数据发生了改变，那么显示的视图的数据也会跟着改变，视图实际上是由预定义的查询形式的表所组成的。</li>
-<li>使用视图的目的：<ol>
-<li>简单：使用视图的用户完全不需要关心后面对应的表的结构、关联条件和筛选条件，对用户来说已经是过滤好的复合条件的结果集。</li>
-<li>安全：使用视图的用户只能访问他们被允许查询的结果集，对表的权限管理并不能限制到某个行某个列，但是通过视图就可以简单的实现。</li>
-<li>数据独立：一旦视图的结构确定了，可以屏蔽表结构变化对用户的影响，源表增加列对视图没有影响；源表修改列名，则可以通过修改视图来解决，不会造成对访问者的影响。</li>
-<li><font color='#00dd00'>  总而言之，使用视图的大部分情况是为了保障数据安全性，提高查询效率。</font></li>
-</ol>
-</li>
-</ul>
-<hr>
-<h3 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h3><ul>
-<li>存储引擎概念：MySQL中的数据用各种不同的技术存储在文件(或者内存)中。这些技术中的每一种技术都使用不同的存储机制、索引技巧、锁定水平并且最终提供广泛的不同的功能和能力。</li>
-<li>需要了解的三种数据引擎：<ol>
-<li>InnoDB：<font color='#00dd00'> InnoDB是一个健壮的事务型存储引擎，</font>这种存储引擎已经被很多互联网公司使用，为用户操作非常大的数据存储提供了一个强大的解决方案。</li>
-<li>MyISAM：MyISAM表是独立于操作系统的，这说明可以轻松地将其从Windows服务器移植到Linux服务器。每当我们建立一个MyISAM引擎的表时，就会在本地磁盘上建立三个文件，文件名就是表名。（frm存储表定义 myd储存数据 myi存储索引）</li>
-<li>MEMORY：使用MySQL Memory存储引擎的出发点是速度，为得到最快的响应时间，采用的逻辑存储介质是系统内存。虽然在内存中存储表数据确实会提供很高的性能，但当mysqld守护进程崩溃时，所有的Memory数据都会丢失。</li>
-</ol>
-</li>
-</ul>
-
+<li><p>个人好奇心所致，把没讲相对重要的三个知识点进行概要补充。</p>
+        
+          <a class="article-more-a" href="/2020/08/31/Mysql%E5%9F%BA%E7%A1%80%EF%BC%88%E7%B4%A2%E5%BC%95%E3%80%81%E8%A7%86%E5%9B%BE%E3%80%81%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%EF%BC%89/#more">more >></a>
+        
       
 
       
@@ -293,31 +246,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li>搭建配置环境：<ul>
-<li>nodejs安装<ul>
-<li>打开命令行：node -v；npm -v 确定版本</li>
-</ul>
-</li>
-<li>git分布式项目管理安装<ul>
-<li>打开命令行：git –v 确定版本</li>
-</ul>
-</li>
-<li>github项目创建</li>
-</ul>
-</li>
-<li>安装hexo<ol>
-<li>启动git Bash 选择装入的盘符</li>
-<li>安装命令：npm install hexo-cli -g</li>
-<li>初始化：hexo init</li>
-<li>生成静态的网页：hexo g</li>
-<li>打开hexo服务：hexo s【<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a> 】</li>
-<li>创建SSH密钥和github账号进行绑定</li>
-<li>部署到github网站</li>
-</ol>
-</li>
-</ul>
-
+        <h3 id="如何搭建hexo静态个人博客"><a href="#如何搭建hexo静态个人博客" class="headerlink" title="如何搭建hexo静态个人博客"></a>如何搭建hexo静态个人博客</h3>
+        
+          <a class="article-more-a" href="/2020/08/30/Hexo%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/#more">more >></a>
+        
       
 
       
