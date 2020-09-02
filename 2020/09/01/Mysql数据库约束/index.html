@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Mysql基础（DQL查询语句） | 睡着的羊</title>
+  <title>Mysql基础（约束） | 睡着的羊</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="DQL:查询表中的记录： 基础查询  条件查询  排序查询  聚合函数  分组查询  分页查询">
+  <meta name="description" content="约束概述 概述：对表中的数据进行限定，保证数据的正确性、有效性和完整性。  分类：  主键约束 primary key  非空约素 not null   唯一约束 unique  外键约束 foreign key">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mysql基础（DQL查询语句）">
-<meta property="og:url" content="http://yoursite.com/2020/09/01/Day02%E6%95%B0%E6%8D%AE%E5%BA%93DQL%E6%9F%A5%E8%AF%A2%E8%A1%A8%E4%B8%AD%E8%AE%B0%E5%BD%9501/index.html">
+<meta property="og:title" content="Mysql基础（约束）">
+<meta property="og:url" content="http://yoursite.com/2020/09/01/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BA%A6%E6%9D%9F/index.html">
 <meta property="og:site_name" content="睡着的羊">
-<meta property="og:description" content="DQL:查询表中的记录： 基础查询  条件查询  排序查询  聚合函数  分组查询  分页查询">
+<meta property="og:description" content="约束概述 概述：对表中的数据进行限定，保证数据的正确性、有效性和完整性。  分类：  主键约束 primary key  非空约素 not null   唯一约束 unique  外键约束 foreign key">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2020/09/01/images/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%99%A8.png">
 <meta property="article:published_time" content="2020-09-01T14:11:10.000Z">
-<meta property="article:modified_time" content="2020-09-01T15:12:16.661Z">
+<meta property="article:modified_time" content="2020-09-02T02:24:20.491Z">
 <meta property="article:author" content="sheepSun">
 <meta property="article:tag" content="mysql相关概念">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/09/01/images/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%99%A8.png">
   
     <link rel="alternative" href="/atom.xml" title="睡着的羊" type="application/atom+xml">
   
@@ -145,19 +147,19 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Day02数据库DQL查询表中记录01" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Mysql数据库约束" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Mysql基础（DQL查询语句）
+      Mysql基础（约束）
     </h1>
   
 
         
-        <a href="/2020/09/01/Day02%E6%95%B0%E6%8D%AE%E5%BA%93DQL%E6%9F%A5%E8%AF%A2%E8%A1%A8%E4%B8%AD%E8%AE%B0%E5%BD%9501/" class="archive-article-date">
+        <a href="/2020/09/01/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BA%A6%E6%9D%9F/" class="archive-article-date">
   	<time datetime="2020-09-01T14:11:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-01</time>
 </a>
         
@@ -165,167 +167,84 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="DQL-查询表中的记录："><a href="#DQL-查询表中的记录：" class="headerlink" title="DQL:查询表中的记录："></a>DQL:查询表中的记录：</h3><ol>
-<li><p>基础查询</p>
+        <h3 id="约束概述"><a href="#约束概述" class="headerlink" title="约束概述"></a>约束概述</h3><ul>
+<li><p>概述：对表中的数据进行限定，保证数据的正确性、有效性和完整性。</p>
 </li>
-<li><p>条件查询</p>
+<li><p>分类：</p>
+<ol>
+<li><p>主键约束 primary key</p>
 </li>
-<li><p>排序查询</p>
+<li><p>非空约素 not null </p>
 </li>
-<li><p>聚合函数</p>
+<li><p>唯一约束 unique</p>
 </li>
-<li><p>分组查询</p>
-</li>
-<li><p>分页查询</p>
+<li><p>外键约束 foreign key</p>
 </li>
 </ol>
-<a id="more"></a>
+</li>
+</ul>
+   <a id="more"></a>
 
 <hr>
-<h4 id="基础查询"><a href="#基础查询" class="headerlink" title="基础查询"></a>基础查询</h4><ul>
-<li><p>select * from 表名；</p>
+<h3 id="非空约束"><a href="#非空约束" class="headerlink" title="非空约束"></a>非空约束</h3><ul>
+<li>非空约束 not null （值不能为空）<ol>
+<li>创建表时添加约束<br>CREATE TABLE stu (<br> id INT,<br> NAME VARCHAR(20) NOT NULL – name 添加非空约束<br> );</li>
+<li>创建表后添加约束<br>  ALTER TABLE stu MODIFY id INT NOT NULL;  – 单独为某一列添加非空集合</li>
+<li>删除表中非空约束<br>  ALTER TABLE stu MODIFY NAME VARCHAR(20); – 删除非空约束</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h3 id="唯一约束"><a href="#唯一约束" class="headerlink" title="唯一约束"></a>唯一约束</h3><ul>
+<li><font color='#00dd00'> 注意事项：mysql中唯一约束限定的列的值可以有多个null </font></li>
+<li>唯一约束 unique （值不能重复）</li>
+</ul>
 <ol>
-<li><p>语法：<br> select </p>
-<pre><code>   字段列表 </code></pre>
-<p>  from </p>
-<pre><code>   表名列表 </code></pre>
-<p>  where </p>
-<pre><code>   条件列表</code></pre>
-<p>  group by </p>
-<pre><code>   分组字段 </code></pre>
-<p>  having </p>
-<pre><code>   分组之后的条件 </code></pre>
-<p>  order by </p>
-<pre><code>    排序 </code></pre>
-<p>  limit </p>
-<pre><code>    分页限定</code></pre>
+<li><p>创建表时，添加唯一约束<br>CREATE TABLE stu1(</p>
+<p>id INT NOT NULL UNIQUE,– id 添加非空约束 和 唯一约束<br>stu_num VARCHAR(20) UNIQUE – stu_num 添加唯一约束</p>
 </li>
-<li><p>基础查询</p>
+</ol>
+<p>);<br>   2. 删除唯一约束<br>      alter table stu1 drop index stu_num; 删除唯一索引（唯一约束）<br>   3. 在创建表后，添加唯一约束<br>      ALTER TABLE stu1 MODIFY stu_num varchar（20）unique;  – 单独为某一列添加唯一约束</p>
+<hr>
+<h3 id="主键约束"><a href="#主键约束" class="headerlink" title="主键约束"></a>主键约束</h3><ul>
+<li>主键 含义：非空且唯一，一张表只能有一个字段为主键，主键就是其中记录唯一标识<ol>
+<li>创建表时，添加主键约束<br> CREATE TABLE stu (<br>  id INT primary key,<br>  NAME VARCHAR(20)<br>  );</li>
+<li>删除主键<br>alter table 表名 drop primary key；</li>
+<li>创建表后，添加主键约束<br>alter table 表名 modify id int primary key；<ul>
+<li>自动增长（主键）：</li>
+</ul>
+</li>
+<li>概念：如果某一列是数值类型的，使用auto_increment 可以完成值得自动增长</li>
+<li>添加自动增长<br> alter table 表名 modify id int auto_increment；</li>
+<li>删除自动增长<br>alter table 表名 modify id int；</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h3 id="外键约束"><a href="#外键约束" class="headerlink" title="外键约束"></a>外键约束</h3><ul>
+<li><p>外键约束： foreign key 让表与表产生关系，从而保证数据的正确性</p>
 <ol>
-<li><p>多个字段的查询</p>
-<ul>
-<li>select 字段1，字段2，…from 表名；</li>
-</ul>
-</li>
-<li><p>去除重复</p>
-<ul>
-<li>select distinct 字段1，字段2，…from 表名；</li>
-</ul>
-</li>
-<li><p>计算列</p>
-<ul>
-<li><p>一般可以使用四则运算计算列的值；（一般只会数值型的计算）</p>
-</li>
-<li><p>select 字段1，字段2，字段1+字段2…from 表名；</p>
-</li>
-</ul>
-</li>
+<li>创建表时添加外键<br>语法：       CREATE TABLE stu (<br>   id INT primary key,<br>   NAME VARCHAR(20),<br>   constraint 外键名称（随便取） foreign key （外键列名称） references 主表名称（主表列名称）<br> );</li>
+<li>删除外键<br>alter table 表名 drop foreign key 外键名称；</li>
+<li>创建表之后，添加外键<br>alter table 表名 add constraint 外键名称（随便取） foreign key （外键列名称） references 主表名称（主表指的是外键列对应的表）（主表列名称）；    </li>
+<li>级联操作（概念：对a表数据进行操作，b表数据同时产生影响）</li>
 </ol>
 <ul>
-<li><p>ifnull（表达式1，表达式2）：null参与的计算，计算结果都为null()</p>
-<pre><code>    SELECT 
-      id,NAME,math,english,IFNULL(math,0)+english （ifNULL                                               用法 如果math为null 赋值为0）
-    AS (起别名 sum)
-        SUM 
-    FROM 
-      student; </code></pre>
-<p>   （表达式1：哪个字段需要判断是否为null；如果该字段为null替换表达式2的值）</p>
-</li>
-</ul>
-<ol start="4">
-<li><p>起别名</p>
-<ul>
-<li>select 字段1，字段2，字段3 as 别名 from 表名；（as关键字 在字段后面添加 别名）</li>
-</ul>
-</li>
+<li>添加级联操作：constraint 外键名称（随便取） foreign key （外键列名称） references 主表名称（主表列名称） on update cascade （添加） on delete cascade（删除） ；<br>ps： 可以分别设置添加和删除也可以一条语句同时设置</li>
+<li>分类：<ol>
+<li>级联更新：on update cascade （添加）</li>
+<li>级联删除：on delete cascade（删除）</li>
 </ol>
 </li>
-</ol>
-</li>
-</ul>
-<hr>
-<h4 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h4><ul>
-<li><p>条件查询 where 后面跟筛选的条件</p>
-<ol>
-<li><p>语法结构： select 字段（列） from 表名 where 条件；</p>
-</li>
-<li><p>运算符：</p>
-<ul>
-<li><p>比较运算符 &gt; &lt; &gt;= &lt;= = &lt;&gt;(不等于）   代码： select * from 表名 where 字段 &gt; 条件；</p>
-</li>
-<li><p>逻辑运算符 and或&amp;&amp;  or或|| not或！    代码： select * from 表名 where 字段 and（&amp;&amp;） 条件； </p>
-</li>
-<li><p>between…and                                       代码： select * from 表名 where 字段 between 条件 and 条件；</p>
-</li>
-<li><p>in（集合）                                            代码： select * from 表名 where 字段 in（ 条件，条件2，条件3）； <font color="#00dd00">类似or的用法 符合这三个条件的都会被筛选出来</font></p>
-</li>
-<li><p>like      模糊查询</p>
-<ul>
-<li><p><font color="#00dd00"><em>单个字符 代码： where 字段（varchar类型） like ‘姓氏</em>‘(比如 马云) 或者 like ‘姓氏__’ (比如 马爸爸 两个下划线 就是三个字的名字)</font></p>
-</li>
-<li><p><font color="#00dd00">%多个字符 （这个姓氏后面在加% 查询所有带有此姓氏的姓名 ） </font></p>
-</li>
-</ul>
-</li>
-<li><p>is null   查询null </p>
-</li>
-<li><p>is not null 查询不是null</p>
-</li>
-</ul>
-</li>
-</ol>
-</li>
-</ul>
-<hr>
-<h4 id="排序查询"><a href="#排序查询" class="headerlink" title="排序查询"></a>排序查询</h4><ol>
-<li>语法结构：<br>select 字段 from 表名 order by 字段（需要排序的列） 排序方式；</li>
-<li>排序方式：<br>ASC：默认方式 升序排列（默认方式不用添加）<br>DESC：降序（如果降序排列需要在字段 添加排序方式）</li>
-<li>注意事项：<br><font color="#00dd00">如果有多个排序条件，则当前边的条件值一样时，才会判断第二条件。</font></li>
-</ol>
-<hr>
-<h4 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h4><ul>
-<li>聚合函数概念：将一列数据作为一个整体，进行纵向的计算<ol>
-<li>count：计算（数据）个数<ul>
-<li>一般选择非空的列：主键（id）</li>
-<li>count ( * ) 此方式不推荐 </li>
-</ul>
-</li>
-<li>max：计算最大值</li>
-<li>min：计算最小值</li>
-<li>sum：计算和</li>
-<li>avg：计算平均值</li>
-</ol>
-<ul>
-<li>sql语句格式：<br>select count（字段 ps：推荐主键）from 表名；</li>
-<li><font color="#00dd00">注意事项：聚合函数的计算，排除null值</font></li>
-<li><font color="#00dd00">解决方案：</font><ul>
-<li><ol>
-<li>选择不包含非空的列进行计算</li>
-</ol>
-</li>
-<li><ol start="2">
-<li>ifnull函数</li>
+<li>级联语句优缺点：<ol>
+<li>优点： 简化操作</li>
+<li>缺点：数据库表中数据较多，如果删除一张表数据（级联影响）可能造成对其他表数据造成删除，造成不可知损失。<br>同时对性能也存在浪费，<font color='#00dd00'>实际开发环境，对级联设置必须“慎重考虑”</font></li>
 </ol>
 </li>
 </ul>
 </li>
-</ul>
+<li><p>SQLyog功能介绍：架构设计器<br> <img src="../images/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%99%A8.png"></p>
 </li>
-</ul>
-<hr>
-<h4 id="分组查询"><a href="#分组查询" class="headerlink" title="分组查询"></a>分组查询</h4><ul>
-<li>语法结构：group by 分组字段（提取数据共性材料）；</li>
-<li>注意事项：<ol>
-<li>分组之后查询的字段：分组字段 聚合函数（没有数据共性的材料没有意义）</li>
-<li>where 和 having 的区别？<br><font color="#00dd00">1. where 在分组之前限定，如果不满足条件，则不参与分组。having 在分组之后进行限定，如果不满足条件，则不会被查询出来</font><br><font color="#00dd00">2. where 后不可以跟聚合函数，having可以进行聚合函数判断</font></li>
-</ol>
-</li>
-</ul>
-<hr>
-<h4 id="分页查询"><a href="#分页查询" class="headerlink" title="分页查询"></a>分页查询</h4><ul>
-<li>语法：limit 开始的索引，每页查询的条数；</li>
-<li>公式：<font color='#00dd00'>开始的索引=（当前的页码-1）* 每页显示的条数</font><br> SELECT * FROM student LIMIT 0,3; – 第一页<br> SELECT * FROM student LIMIT 3,3; – 第二页</li>
-<li>limit 是一个mysql‘方言’，意思就是其他sql软件不适用</li>
 </ul>
 
       
@@ -417,7 +336,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/09/01/Day02%E6%95%B0%E6%8D%AE%E5%BA%93DQL%E6%9F%A5%E8%AF%A2%E8%A1%A8%E4%B8%AD%E8%AE%B0%E5%BD%9501/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/09/01/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BA%A6%E6%9D%9F/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -432,8 +351,8 @@
 <nav id="article-nav">
   
   
-    <a href="/2020/09/01/Day02%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BA%A6%E6%9D%9F02/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Mysql基础（约束）</div>
+    <a href="/2020/08/31/Mysql%E5%9F%BA%E7%A1%80%EF%BC%88%E7%B4%A2%E5%BC%95%E3%80%81%E8%A7%86%E5%9B%BE%E3%80%81%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Mysql基础（索引、视图、存储引擎）</div>
       <i class="icon-circle-right"></i>
     </a>
   
