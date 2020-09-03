@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/8 | 睡着的羊</title>
+  <title>SQL基本概念 | 睡着的羊</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="睡着的羊">
-<meta property="og:url" content="http://yoursite.com/archives/2020/08/index.html">
+  <meta name="description" content="SQL1.什么是SQL？  结构化查询语言（其实就是定义了操作所有关系型数据库的规则）  每一种数据库操作的方式不太一样的地方，称为“方言”">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL基本概念">
+<meta property="og:url" content="http://yoursite.com/2020/09/03/SQL%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/index.html">
 <meta property="og:site_name" content="睡着的羊">
+<meta property="og:description" content="SQL1.什么是SQL？  结构化查询语言（其实就是定义了操作所有关系型数据库的规则）  每一种数据库操作的方式不太一样的地方，称为“方言”">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-09-03T02:31:10.000Z">
+<meta property="article:modified_time" content="2020-09-03T04:21:05.668Z">
 <meta property="article:author" content="鄙人，孙肥肥">
+<meta property="article:tag" content="随笔">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="睡着的羊" type="application/atom+xml">
@@ -155,74 +160,85 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-SQL基本概念" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/31/Mysql%E5%9F%BA%E7%A1%80%EF%BC%88%E7%B4%A2%E5%BC%95%E3%80%81%E8%A7%86%E5%9B%BE%E3%80%81%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-08-31T14:11:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-31</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/31/Mysql%E5%9F%BA%E7%A1%80%EF%BC%88%E7%B4%A2%E5%BC%95%E3%80%81%E8%A7%86%E5%9B%BE%E3%80%81%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%EF%BC%89/">Mysql基础（索引、视图、存储引擎）</a>
+    <h1 class="article-title" itemprop="name">
+      SQL基本概念
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">mysql相关概念</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/31/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="archive-article-date">
-  	<time datetime="2020-08-31T14:11:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-31</time>
+        
+        <a href="/2020/09/03/SQL%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="archive-article-date">
+  	<time datetime="2020-09-03T02:31:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-03</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/31/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/">数据库的基本概念</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h3><p>1.什么是SQL？</p>
+<ul>
+<li><p>结构化查询语言（其实就是定义了操作所有关系型数据库的规则）</p>
+</li>
+<li><p>每一种数据库操作的方式不太一样的地方，称为“方言”</p>
+<a id="more"></a>
 
-        <div class="article-info info-on-right">
-          
+</li>
+</ul>
+<p>2.SQL通用语法：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">* SQL语句可以单行或多行书写，以分号结尾“；”</span><br><span class="line">* 可用空格和缩进增强语句的可读性</span><br><span class="line">* Mysql语句不区分大小写，关键字建议使用大写</span><br><span class="line">* 2种注释：</span><br><span class="line">    ** 单行注释：--（空格）注释内容 或 # 注释内容（mysql 特有 ）</span><br><span class="line">    ** 多行注释： /* 注释 */ </span><br></pre></td></tr></table></figure>
+
+<p>3.SQL分类：</p>
+<ul>
+<li>DDL 数据定义语言（操作数据库、表）</li>
+<li>DML 数据操作语言（增删改 表中的数据）</li>
+<li>DQL 数据查询语言（查询 表中数据）</li>
+<li>DCL 数据控制语言（了解）（客户端 授权）</li>
+</ul>
+<hr>
+<h3 id="DDL-操作数据库、表"><a href="#DDL-操作数据库、表" class="headerlink" title="DDL:操作数据库、表"></a>DDL:操作数据库、表</h3><p>   1.操作数据库：CRUD（db指数据库名称，实际运用中以实际名称为准）</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">*</span> C（creat）：创建</span><br><span class="line"><span class="bullet">  1.</span> 创建数据库：create database db1；</span><br><span class="line">  （需求练习：创建数据库，判断是否存在，并指定字符集：creat database if not exists db character set gbk;）</span><br><span class="line">  </span><br><span class="line"><span class="bullet">*</span> R（retrieve）：查询</span><br><span class="line"><span class="bullet">  1.</span> 查询所有数据库的名称：show databases；</span><br><span class="line"><span class="bullet">  2.</span> 查询数据库的字符集（某个数据库的创建语句)：show creat database  mysql;</span><br><span class="line">  </span><br><span class="line"><span class="bullet">*</span> U （updata）：修改</span><br><span class="line"><span class="bullet">  1.</span> 修改数据库的字符集：alter database db character set gbk；</span><br><span class="line">  </span><br><span class="line"><span class="bullet">*</span> D （delete）：删除</span><br><span class="line"><span class="bullet">  1.</span> 删除数据库：drop database db；</span><br><span class="line"><span class="bullet">  2.</span> 判断数据库是否存在：drop database if exists db ；</span><br><span class="line"></span><br><span class="line"><span class="bullet">*</span> 使用数据库</span><br><span class="line">  1.查询当前正在使用的数据库名称：select database（）；</span><br><span class="line">  2.使用数据库：use db；</span><br></pre></td></tr></table></figure>
+
+<p>   2.操作表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">* C（creat）：创建</span><br><span class="line">  1. 语法：</span><br><span class="line">     创建表：<span class="keyword">create</span> <span class="keyword">table</span> 表明（</span><br><span class="line">      列名<span class="number">1</span> 数据类型<span class="number">1</span>，列名<span class="number">2</span> 数据类型<span class="number">2</span>，（可以写多个）</span><br><span class="line">     ）；（注意：最后一列不需要加逗号）</span><br><span class="line">  <span class="number">2.</span> 数据类型：</span><br><span class="line">     <span class="built_in">int</span> 整数类型</span><br><span class="line">     <span class="keyword">double</span> 小数类型 （例子：a <span class="keyword">double</span>(<span class="number">5</span>,<span class="number">2</span>) 后面的数字代表 允许<span class="number">5</span>位小数 并保留两位</span><br><span class="line">     <span class="built_in">date</span> 日期：只包含年月日 yyyy-MM-dd</span><br><span class="line">     datetime 日期 包含年月日时分秒 yyyy-MM-dd HH:mm:ss</span><br><span class="line">     <span class="built_in">timestamp</span> 时间戳类型 包含年月日时分秒 yyyy-MM-dd HH:mm:ss（区别<span class="built_in">timestamp</span>不赋值或赋值为<span class="literal">null</span>，则默认当前系统时间在自动赋值）</span><br><span class="line">     <span class="built_in">varchar</span>（<span class="number">20</span>） 字符串类型 数字代表最大<span class="number">20</span>个字符</span><br><span class="line">   <span class="number">3.</span> 复制表：<span class="keyword">create</span> <span class="keyword">table</span> 表名 <span class="keyword">like</span> 被复制的表名；</span><br><span class="line">     </span><br><span class="line">* R（retrieve）：查询</span><br><span class="line">  <span class="number">1.</span> 查询某个数据库所有的表名称：<span class="keyword">show</span> <span class="keyword">tables</span>；</span><br><span class="line">  <span class="number">2.</span> 查询表结构：<span class="keyword">desc</span> 表名称；</span><br><span class="line"></span><br><span class="line">* U （updata）：修改</span><br><span class="line">  <span class="number">1.</span> 修改表的名称：<span class="keyword">alter</span> <span class="keyword">table</span> 表名 <span class="keyword">rename</span> <span class="keyword">to</span> 新的表名</span><br><span class="line">  <span class="number">2.</span> 修改表的字符集：<span class="keyword">alter</span> <span class="keyword">table</span> 表名 <span class="built_in">character</span> <span class="keyword">set</span> 字符集名称</span><br><span class="line">  <span class="number">3.</span> 添加一列：<span class="keyword">alter</span> <span class="keyword">table</span> 表名 <span class="keyword">add</span> 列名 数据类型</span><br><span class="line">  <span class="number">4.</span> 修改列的名称和类型：</span><br><span class="line">     * <span class="keyword">alter</span> <span class="keyword">table</span> 表名 <span class="keyword">change</span> 列名 新列名 新数据类型</span><br><span class="line">     * <span class="keyword">alter</span> <span class="keyword">table</span> 表名 <span class="keyword">modify</span> 列名 新数据类型(只修改列的类型)</span><br><span class="line">  <span class="number">5.</span> 删除列：<span class="keyword">alter</span> <span class="keyword">table</span> 表名 <span class="keyword">drop</span> 列名</span><br><span class="line"></span><br><span class="line">* D （<span class="keyword">delete</span>）：删除</span><br><span class="line">  <span class="number">1.</span> 删除表 ：<span class="keyword">drop</span> <span class="keyword">table</span> 表名；</span><br><span class="line">             <span class="keyword">drop</span> <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">exists</span> 表名；（判断该表是否存在，存在则删除）</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>佛渡有缘人，施主扫微信<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://i.ibb.co/M84D0j8/20200902230715.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -234,57 +250,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/09/03/SQL%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/30/Hexo%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2020-08-30T08:18:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-30</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/09/01/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BA%A6%E6%9D%9F/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Mysql基础（约束）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/30/Hexo%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/">Hexo静态博客</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">hexo博客框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -312,8 +377,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
