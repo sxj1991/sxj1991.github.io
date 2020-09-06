@@ -6,20 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>数据库的基本概念 | 睡着的羊</title>
+  <title>数据库设计（范式，多表关系） | 睡着的羊</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="数据库的英文单词：DataBase（DB）数据库 什么是数据库？ 用于存储和管理数据的仓库     数据库的特点： 持久化存储数据（ps：其实数据库就是一个文件系统） 方便存储和管理数据 使用统一的方式操作数据库 – SQL   常见的数据软件： Oracle 数据库 MySql 数据库 SQL Server 数据库">
+  <meta name="description" content="数据库设计多表之间的关系：  1.一对一（了解）：实际开发使用情况较少 例子：人和身份证  2.一对多（多对一）  例子：员工和部门的关系  3.多对多         例子： 学生和课程（可以多项选择）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据库的基本概念">
-<meta property="og:url" content="http://yoursite.com/2020/08/31/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/index.html">
+<meta property="og:title" content="数据库设计（范式，多表关系）">
+<meta property="og:url" content="http://yoursite.com/2020/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1(%E5%A4%9A%E8%A1%A8%E3%80%81%E8%8C%83%E5%BC%8F)/index.html">
 <meta property="og:site_name" content="睡着的羊">
-<meta property="og:description" content="数据库的英文单词：DataBase（DB）数据库 什么是数据库？ 用于存储和管理数据的仓库     数据库的特点： 持久化存储数据（ps：其实数据库就是一个文件系统） 方便存储和管理数据 使用统一的方式操作数据库 – SQL   常见的数据软件： Oracle 数据库 MySql 数据库 SQL Server 数据库">
+<meta property="og:description" content="数据库设计多表之间的关系：  1.一对一（了解）：实际开发使用情况较少 例子：人和身份证  2.一对多（多对一）  例子：员工和部门的关系  3.多对多         例子： 学生和课程（可以多项选择）">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-08-31T14:11:10.000Z">
-<meta property="article:modified_time" content="2020-09-06T08:06:15.834Z">
+<meta property="article:published_time" content="2020-09-06T08:05:15.000Z">
+<meta property="article:modified_time" content="2020-09-06T08:45:33.862Z">
 <meta property="article:author" content="鄙人，孙肥肥">
-<meta property="article:tag" content="mysql相关概念">
-<meta property="article:tag" content="随笔">
+<meta property="article:tag" content="mysql">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="睡着的羊" type="application/atom+xml">
@@ -161,20 +160,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-数据库的基本概念" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-数据库设计(多表、范式)" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      数据库的基本概念
+      数据库设计（范式，多表关系）
     </h1>
   
 
         
-        <a href="/2020/08/31/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="archive-article-date">
-  	<time datetime="2020-08-31T14:11:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-31</time>
+        <a href="/2020/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1(%E5%A4%9A%E8%A1%A8%E3%80%81%E8%8C%83%E5%BC%8F)/" class="archive-article-date">
+  	<time datetime="2020-09-06T08:05:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-06</time>
 </a>
         
       </header>
@@ -182,33 +181,53 @@
     <div class="article-entry" itemprop="articleBody">
       
         <ul>
-<li>数据库的英文单词：DataBase（DB）数据库<ul>
-<li>什么是数据库？<ul>
-<li>用于存储和管理数据的仓库</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>数据库的特点：<ul>
-<li>持久化存储数据（ps：其实数据库就是一个文件系统）</li>
-<li>方便存储和管理数据</li>
-<li>使用统一的方式操作数据库 – SQL</li>
-</ul>
-</li>
-<li>常见的数据软件：<ul>
-<li>Oracle 数据库</li>
-<li>MySql 数据库</li>
-<li>SQL Server 数据库</li>
-</ul>
-</li>
-</ul>
+<li><p>数据库设计多表之间的关系：<br>  1.一对一（了解）：实际开发使用情况较少 例子：人和身份证<br>  2.一对多（多对一）  例子：员工和部门的关系<br>  3.多对多         例子： 学生和课程（可以多项选择）</p>
   <a id="more"></a>
 
-<h2 id="MySql-数据库软件"><a href="#MySql-数据库软件" class="headerlink" title="MySql 数据库软件"></a>MySql 数据库软件</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">1.</span> MySql的安装（安装流程）</span><br><span class="line"><span class="bullet">2.</span> MySql的卸载：</span><br><span class="line"><span class="bullet">   *</span> 在mysql安装目录找到my.ini文件</span><br><span class="line"><span class="bullet">     *</span> 复制 datadir= &quot;路径名称&quot;<span class="strong">**</span></span><br><span class="line"><span class="strong">   <span class="emphasis">* 卸载MySql</span></span></span><br><span class="line"><span class="strong"><span class="emphasis">   *</span> 删除c盘：programData目录下的Mysql文件夹（不删除的话 第二次安装会显示失败）</span></span><br><span class="line"><span class="strong"></span></span><br><span class="line"><span class="strong">3. MySql的配置：</span></span><br><span class="line"><span class="strong">   <span class="emphasis">* Mysql服务（服务和配置 启动）</span></span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">4.MySql登录和退出</span><br><span class="line">* 登录：cmd--&gt; mysql -uroot -p密码（本地）</span><br><span class="line">* 登录：cmd--&gt; mysql -h（ip地址） -uroot -p密码（访问别人电脑）</span><br><span class="line">* 退出：exit / quit </span><br></pre></td></tr></table></figure>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">5.</span> MySql目录结构</span><br><span class="line"><span class="code">     </span></span><br><span class="line"><span class="code"> - mysql安装目录(配置文件my.ini)</span></span><br><span class="line"><span class="code">  * bin目录：二进制执行文件</span></span><br><span class="line"><span class="code">  * data目录：数据目录（数据文件）</span></span><br><span class="line"><span class="code">  * lib目录：java包</span></span><br><span class="line"><span class="code">  * share目录：错误信息</span></span><br><span class="line"><span class="code">  * my.ini 配置文件（核心配置文件）</span></span><br><span class="line"><span class="code">     - mysql数据目录</span></span><br><span class="line"><span class="code">  数据库（文件夹）--&gt;多张表--&gt;每张表可以存放多条数据</span></span><br><span class="line"><span class="code">  数据库概念：文件夹</span></span><br><span class="line"><span class="code">  表概念：文件</span></span><br><span class="line"><span class="code">  数据概念：表中数据</span></span><br></pre></td></tr></table></figure>
-
+</li>
+</ul>
+<hr>
+<h3 id="多表关系-一对多的关系实现"><a href="#多表关系-一对多的关系实现" class="headerlink" title="多表关系(一对多的关系实现)"></a>多表关系(一对多的关系实现)</h3><ul>
+<li>实现方式：再多的一方建立外键，指向一的一方的主键</li>
+</ul>
+<hr>
+<h3 id="多表关系-多对多的关系实现"><a href="#多表关系-多对多的关系实现" class="headerlink" title="多表关系(多对多的关系实现)"></a>多表关系(多对多的关系实现)</h3><ul>
+<li>实现方式：多对多的关系实现需要借助第三张中间表。中间表至少包含两个字段，这两个字段作为第三张表的外键，分别指向两张表的主键</li>
+</ul>
+<hr>
+<h3 id="多表关系-一对一的关系实现"><a href="#多表关系-一对一的关系实现" class="headerlink" title="多表关系(一对一的关系实现)"></a>多表关系(一对一的关系实现)</h3><ul>
+<li>实现方式：一对一关系实现，可以任意一方添加唯一外键 指向另一方的主键（实际运用不如整合在一张表上）</li>
+</ul>
+<hr>
+<h3 id="多表关系-案例演练：旅游网用户选择旅游线路数据库设计"><a href="#多表关系-案例演练：旅游网用户选择旅游线路数据库设计" class="headerlink" title="多表关系 案例演练：旅游网用户选择旅游线路数据库设计"></a>多表关系 案例演练：旅游网用户选择旅游线路数据库设计</h3><hr>
+<h3 id="数据库设计的范式"><a href="#数据库设计的范式" class="headerlink" title="数据库设计的范式"></a>数据库设计的范式</h3><ul>
+<li><p>概念：设计数据库时，需要遵循的一些规范。<font color='#00dd00'>要遵循后边的范式要求，必须遵循前边的所有范式要求。</font></p>
+<p>1.数据库规范化，又称正规化、标准化，是数据库设计的一系列原理和技术，<font color='#00dd00'>以减少数据库中数据冗余，增进数据的一致性。</font>1970年代初定义了第一范式、第二范式和第三范式的概念，除外还包括针对多值依赖的第四范式，连接依赖的第五范式、DK范式和第六范式。</p>
+</li>
+</ul>
+<p>ps：现在数据库设计最多满足3NF</p>
+<hr>
+<h3 id="数据库设计三大范式"><a href="#数据库设计三大范式" class="headerlink" title="数据库设计三大范式"></a>数据库设计三大范式</h3><ul>
+<li>分类：<br> 1.第一范式（1NF）：强调的是列的原子性，<font color='#00dd00'>即列不能够再分成其他几列。即据库表中的字段都是单一属性的，不可再分。</font><br> 2.第二范式（2NF）：首先是 1NF，另外包含两部分内容，一是表必须有一个主键；二是没有包含在主键中的列必须完全依赖于主键，而不能只依赖于主键的一部分。<br><font color='#00dd00'>第二范式目的就是消除部分函数依赖的影响</font><br> 3.第三范式（3NF）：首先是 2NF，另外非主键列必须直接依赖于主键，<font color='#00dd00'>不能存在传递依赖。</font>即不能存在：非主键列 A 依赖于非主键列 B，非主键列 B 依赖于主键的情况。<ul>
+<li>几个概念：<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">1.函数依赖： 如果通过A属性（属性组）的值，可以确定唯一B属性的值。则B依赖于A</span><br><span class="line"><span class="code">     比如：姓名 依赖 学号   （分数） 依赖 （学号，课程名称）属性组</span></span><br><span class="line"><span class="code">2.完全函数依赖：如果A是一个属性组，则B值的确定必须依赖于A属性组所有的属性值</span></span><br><span class="line"><span class="code">     比如：（分数） 依赖 （学号，课程名称）属性组</span></span><br><span class="line"><span class="code">3.部分函数依赖：如果A是一个属性组，则B值的确定只依赖于A属性组其中部分属性值</span></span><br><span class="line"><span class="code">     比如：（姓名） 依赖 （学号，课程名称）属性组里面《学号属性》</span></span><br><span class="line"><span class="code">4.传递函数依赖：如果通过A属性（属性组）的值，可以确定唯一B属性的值；通过B属性的值在确认唯一C属性的值；则C传递依赖于A</span></span><br><span class="line"><span class="code">     比如：系名 依赖 学号； 系主任 依赖 系名 （系主任 传递依赖 学号）</span></span><br><span class="line"><span class="code">5.码：如果在一张表中，一个属性或属性组，被其他所有属性所完全依赖，则称这个属性（属性组）为该表的码</span></span><br><span class="line"><span class="code">     比如：（学号，课程名称）学生信息表 这个属性组就是“码”</span></span><br><span class="line"><span class="code">     主属性：码属性组中的所有属性</span></span><br><span class="line"><span class="code">     非主属性：除码属性组的属性</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="数据库的备份和还原"><a href="#数据库的备份和还原" class="headerlink" title="数据库的备份和还原"></a>数据库的备份和还原</h3><ul>
+<li><p>命令行：</p>
+<ol>
+<li>语法： <ul>
+<li>备份 ：mysqldump -u用户名 -p密码  数据库名 &gt;保存的路径</li>
+<li>还原：<br> 1.登录数据库<br> 2.创建数据库<br> 3.使用数据库<br> 4.执行文件。source 文件路径</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>图形化工具：<br> 1.备份：使用备份功能<br> 2.还原：还原功能 –&gt; 执行sql脚本</p>
+</li>
+</ul>
 
       
 
@@ -248,11 +267,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">mysql相关概念</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
         		</li>
       		
 		</ul>
@@ -308,7 +323,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/08/31/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1(%E5%A4%9A%E8%A1%A8%E3%80%81%E8%8C%83%E5%BC%8F)/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -322,18 +337,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/08/31/Mysql%E5%9F%BA%E7%A1%80%EF%BC%88%E7%B4%A2%E5%BC%95%E3%80%81%E8%A7%86%E5%9B%BE%E3%80%81%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%EF%BC%89/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93DQL%E6%9F%A5%E8%AF%A2%E8%A1%A8%E4%B8%AD%E8%AE%B0%E5%BD%95/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Mysql基础（索引、视图、存储引擎）
+          数据库DQL查询语句
         
       </div>
     </a>
   
   
-    <a href="/2020/08/30/Hexo%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hexo静态博客</div>
+    <a href="/2020/09/03/SQL%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SQL基本概念</div>
       <i class="icon-circle-right"></i>
     </a>
   
