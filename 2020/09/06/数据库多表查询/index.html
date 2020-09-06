@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>睡着的羊</title>
+  <title>数据库多表查询 | 睡着的羊</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="睡着的羊">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="多表查询1234567* 多表查询： select * from 表名1，表名2；  1.笛卡尔积：多表查询时，会取两个集合的所有组成情况（即表1和表2产生错误的查询结果）   * 完成多表查询，需要消除无用的数据  2.多表查询的分类：   * 内连接查询   * 外连接查询   * 子查询  多表查询-内连接">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库多表查询">
+<meta property="og:url" content="http://yoursite.com/2020/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/index.html">
 <meta property="og:site_name" content="睡着的羊">
+<meta property="og:description" content="多表查询1234567* 多表查询： select * from 表名1，表名2；  1.笛卡尔积：多表查询时，会取两个集合的所有组成情况（即表1和表2产生错误的查询结果）   * 完成多表查询，需要消除无用的数据  2.多表查询的分类：   * 内连接查询   * 外连接查询   * 子查询  多表查询-内连接">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-09-06T08:05:15.000Z">
+<meta property="article:modified_time" content="2020-09-06T08:54:00.301Z">
 <meta property="article:author" content="鄙人，孙肥肥">
+<meta property="article:tag" content="mysql">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="睡着的羊" type="application/atom+xml">
@@ -155,329 +160,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-数据库DQL查询表中记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-数据库多表查询" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93DQL%E6%9F%A5%E8%AF%A2%E8%A1%A8%E4%B8%AD%E8%AE%B0%E5%BD%95/">数据库DQL查询语句</a>
-    </h1>
-  
-
-        
-        <a href="/2020/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93DQL%E6%9F%A5%E8%AF%A2%E8%A1%A8%E4%B8%AD%E8%AE%B0%E5%BD%95/" class="archive-article-date">
-  	<time datetime="2020-09-06T08:05:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="DQL-查询表中的记录："><a href="#DQL-查询表中的记录：" class="headerlink" title="DQL:查询表中的记录："></a>DQL:查询表中的记录：</h3><p>1.基础查询<br>2.条件查询<br>3.排序查询<br>4.聚合函数<br>5.分组查询<br>6.分页查询</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93DQL%E6%9F%A5%E8%AF%A2%E8%A1%A8%E4%B8%AD%E8%AE%B0%E5%BD%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-数据库设计(多表、范式)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1(%E5%A4%9A%E8%A1%A8%E3%80%81%E8%8C%83%E5%BC%8F)/">数据库设计（范式，多表关系）</a>
-    </h1>
-  
-
-        
-        <a href="/2020/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1(%E5%A4%9A%E8%A1%A8%E3%80%81%E8%8C%83%E5%BC%8F)/" class="archive-article-date">
-  	<time datetime="2020-09-06T08:05:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><p>数据库设计多表之间的关系：<br>  1.一对一（了解）：实际开发使用情况较少 例子：人和身份证<br>  2.一对多（多对一）  例子：员工和部门的关系<br>  3.多对多         例子： 学生和课程（可以多项选择）</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1(%E5%A4%9A%E8%A1%A8%E3%80%81%E8%8C%83%E5%BC%8F)/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-数据库DCL权限管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93DCL%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">数据库DCL权限了解</a>
-    </h1>
-  
-
-        
-        <a href="/2020/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93DCL%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" class="archive-article-date">
-  	<time datetime="2020-09-06T08:05:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="DCL-管理用户"><a href="#DCL-管理用户" class="headerlink" title="DCL 管理用户"></a>DCL 管理用户</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">* 管理用户（授权）（主机名 ： localhost 或者 % 代表任意主机 ）</span><br><span class="line">  1. 管理用户：</span><br><span class="line">  * 添加用户：create user &#x27;用户名&#x27;@&#x27;主机名 &#x27; inentified by &#x27;密码&#x27;</span><br><span class="line">  * 删除用户： drop user  &#x27;用户名&#x27;@&#x27;主机名 &#x27;</span><br><span class="line">  * 修改用户密码：</span><br><span class="line">    1. 修改密码的两种语法：</span><br><span class="line">     * UPDATE USER SET PASSWORD = PASSWORD(&#x27;新密码&#x27;) WHERE USER = &#x27;用户名&#x27;;</span><br><span class="line">     * SET PASSWORD FOR &#x27;用户名&#x27;@&#x27;主机名&#x27; = PASSWORD(&#x27;新密码&#x27;);</span><br><span class="line">    2. 特殊情况：mysql中忘记了root用户的密码？</span><br><span class="line">     * cmd -- &gt; net stop mysql 停止mysql服务（需要管理员运行该cmd）</span><br><span class="line">     * 使用无验证方式启动mysql服务： mysqld --skip-grant-tables</span><br><span class="line">     * 打开新的cmd窗口,直接输入mysql命令，敲回车。就可以登录成功</span><br><span class="line">     * use mysql;</span><br><span class="line">     * update user set password = password(&#x27;你的新密码&#x27;) where user = &#x27;root&#x27;;</span><br><span class="line">     * 关闭两个窗口</span><br><span class="line">     * 打开任务管理器，手动结束mysqld.exe 的进程</span><br><span class="line">     * 启动mysql服务</span><br><span class="line">     * 使用新密码登录</span><br><span class="line">  * 查询用户名：</span><br><span class="line">    1. 切换到mysql数据库 <span class="keyword">use</span> mysql</span><br><span class="line">    <span class="number">2.</span> 查询<span class="keyword">user</span>表 <span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">user</span></span><br><span class="line">    <span class="number">3.</span> 注意：通配符 % 表示可以在任意主机使用用户登录数据库</span><br><span class="line"></span><br><span class="line"> <span class="number">2.</span> 授予/撤销权限：</span><br><span class="line">  * 授予权限：<span class="keyword">grant</span> 权限列表 <span class="keyword">on</span> 数据库名.表名 <span class="keyword">to</span> <span class="string">&#x27;用户名&#x27;</span>@<span class="string">&#x27;主机名&#x27;</span>;</span><br><span class="line">  * 撤销权限：revoke 权限列表 on 数据库名.表名 from &#x27;用户名&#x27;@&#x27;主机名&#x27;;</span><br><span class="line">  * 查询权限：show grants for  &#x27;用户名&#x27;@&#x27;主机名 &#x27; </span><br><span class="line">  * 注意：通配符 all 代表所有权限 </span><br><span class="line">                *.* 所有库的所有表</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93DCL%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-数据库事务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%8B%E5%8A%A1/">数据库事务管理</a>
-    </h1>
-  
-
-        
-        <a href="/2020/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%8B%E5%8A%A1/" class="archive-article-date">
-  	<time datetime="2020-09-06T08:05:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="事务基本介绍"><a href="#事务基本介绍" class="headerlink" title="事务基本介绍"></a>事务基本介绍</h3><ul>
-<li><p>事务概念：如果一个包含多个步骤的业务操作，被事务管理，操作要么同时成功，反之则同时<br>失败。</p>
-</li>
-<li><p>操作步骤：<br>1.开启事物：start transaction；<br>2.回滚：rollback；<br>3.提交：commit；</p>
-</li>
-<li><p>Mysql数据库中事务默认自动提交<br>1.自动提交：</p>
-<ul>
-<li>MySQL就是自动提交的</li>
-<li>DML（增删改）语句会自动提交一次事务</li>
-</ul>
-<p>2.手动提交：</p>
-<ul>
-<li><p>Oracle 数据库是默认手动提交事务</p>
-</li>
-<li><p>需要先开启事务，在提交</p>
-</li>
-<li><p>修改事务的默认方式：<br>1.查看事务的默认提交方式： select @@autocommit； 1代表自动提交 0代表手动提交<br>2.修改事务默认提交方式： set @@autocommit = 0 ；改成手动提交</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%8B%E5%8A%A1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-数据库多表查询" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/">数据库多表查询</a>
+    <h1 class="article-title" itemprop="name">
+      数据库多表查询
     </h1>
   
 
@@ -492,10 +182,52 @@
       
         <h3 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">* 多表查询： select * from 表名1，表名2；</span><br><span class="line">  1.笛卡尔积：多表查询时，会取两个集合的所有组成情况（即表1和表2产生错误的查询结果）</span><br><span class="line">   * 完成多表查询，需要消除无用的数据</span><br><span class="line">  2.多表查询的分类：</span><br><span class="line">   * 内连接查询</span><br><span class="line">   * 外连接查询</span><br><span class="line">   * 子查询</span><br></pre></td></tr></table></figure>
 <hr>
-<h4 id="多表查询-内连接"><a href="#多表查询-内连接" class="headerlink" title="多表查询-内连接"></a>多表查询-内连接</h4>
-        
+<h4 id="多表查询-内连接"><a href="#多表查询-内连接" class="headerlink" title="多表查询-内连接"></a>多表查询-内连接</h4><a id="more"></a>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">* 隐式内连接：使用where条件消除无用的数据</span><br><span class="line">     1. 语法结构：</span><br><span class="line">     <span class="keyword">SELECT</span> emp.<span class="string">`NAME`</span>,gender,dept.<span class="string">`NAME`</span> <span class="keyword">FROM</span> dept, emp <span class="keyword">WHERE</span> dept.<span class="string">`id`</span>=emp.<span class="string">`dept_id`</span>;</span><br><span class="line">     2. 实际开发中的sql语句sql语句：</span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">     t1.<span class="string">`NAME`</span>,  <span class="comment">-- 员工姓名</span></span><br><span class="line">     t1.<span class="string">`gender`</span>,<span class="comment">-- 员工性别</span></span><br><span class="line">     t2.<span class="string">`NAME`</span><span class="comment">-- 部门</span></span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">      emp <span class="keyword">AS</span> t1, <span class="comment">-- 别名</span></span><br><span class="line">      dept <span class="keyword">AS</span> t2</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">      t1.<span class="string">`dept_id`</span> = t2.<span class="string">`id`</span>; <span class="comment">-- 条件</span></span><br><span class="line">    </span><br><span class="line">* 显式内连接：【】内容可省略</span><br><span class="line">  1. 语法结构： <span class="keyword">select</span> 字段列表 <span class="keyword">from</span> 表名<span class="number">1</span> 【<span class="keyword">inner</span>】 <span class="keyword">join</span> 表名<span class="number">2</span> <span class="keyword">on</span> 条件</span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">     t1.<span class="string">`NAME`</span>,  <span class="comment">-- 员工姓名</span></span><br><span class="line">     t1.<span class="string">`gender`</span>,<span class="comment">-- 员工性别</span></span><br><span class="line">     t2.<span class="string">`NAME`</span><span class="comment">-- 部门</span></span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">     emp <span class="keyword">AS</span> t1</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span></span><br><span class="line">     dept <span class="keyword">AS</span> t2</span><br><span class="line"><span class="keyword">ON</span></span><br><span class="line">     t1.<span class="string">`dept_id`</span> = t2.<span class="string">`id`</span>; <span class="comment">-- 条件</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>内连接注意事项<ol>
+<li>从哪些表中查询数据（确认表）</li>
+<li>条件是什么？（确认查询条件）</li>
+<li>查询哪些字段（确认需要的数据）</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h4 id="多表查询-外连接"><a href="#多表查询-外连接" class="headerlink" title="多表查询-外连接"></a>多表查询-外连接</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 左外连接：</span><br><span class="line"> 1. 语法：<span class="keyword">select</span> 字段列表  <span class="keyword">from</span>  表名<span class="number">1</span> <span class="keyword">left</span> 【<span class="keyword">outer</span>】 <span class="keyword">join</span> 表名<span class="number">2</span> <span class="keyword">on</span> 条件；</span><br><span class="line"> <span class="number">2.</span> 查询的是左表所有数据以及交集部分</span><br><span class="line">* 右外连接：</span><br><span class="line"> <span class="number">1.</span> 语法：<span class="keyword">select</span> 字段列表  <span class="keyword">from</span>  表名<span class="number">1</span> <span class="keyword">right</span> 【<span class="keyword">outer</span>】 <span class="keyword">join</span> 表名<span class="number">2</span> <span class="keyword">on</span> 条件；</span><br><span class="line"> <span class="number">2.</span> 查询的是右表所有数据以及交集部分</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="多表查询-子查询"><a href="#多表查询-子查询" class="headerlink" title="多表查询-子查询"></a>多表查询-子查询</h4><h5 id="子查询概述"><a href="#子查询概述" class="headerlink" title="子查询概述"></a>子查询概述</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">* 概述：查询中嵌套查询，称 嵌套查询为子查询</span><br><span class="line">* sql语句演示：</span><br><span class="line">1. 传统sql语句：</span><br><span class="line">   <span class="keyword">select</span> <span class="keyword">max</span>（列表字段） <span class="keyword">from</span> 表名<span class="number">1</span> ； <span class="comment">-- 得到列表字段最大值</span></span><br><span class="line">   <span class="keyword">select</span> <span class="keyword">name</span> <span class="keyword">from</span> 表名<span class="number">1</span> <span class="keyword">where</span> 列表字段=<span class="keyword">max</span>（列表字段）；<span class="comment">--查询 所属列表字段的姓名</span></span><br><span class="line"><span class="number">2.</span> 子查询演示（简化了<span class="keyword">sql</span>查询语句）：</span><br><span class="line">   <span class="keyword">select</span> <span class="keyword">name</span> <span class="keyword">from</span> 表名<span class="number">1</span> <span class="keyword">where</span> = （<span class="keyword">select</span> <span class="keyword">max</span>（列表字段） <span class="keyword">from</span> 表名<span class="number">1</span>）；</span><br></pre></td></tr></table></figure>
+<hr>
+<h5 id="子查询不同情况分析"><a href="#子查询不同情况分析" class="headerlink" title="子查询不同情况分析"></a>子查询不同情况分析</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"> * 子查询的结果是单行单列的：</span><br><span class="line">   1. 子查询可以作为“条件”，使用运算符去判断</span><br><span class="line">   2. 需求练习：查询公司小云平均工资员工（单行 单列 指条件单一）</span><br><span class="line">   <span class="keyword">SELECT</span> <span class="keyword">id</span>,<span class="keyword">NAME</span>,salary <span class="keyword">FROM</span> emp <span class="keyword">WHERE</span> salary&lt; (<span class="keyword">SELECT</span> <span class="keyword">AVG</span>(salary) <span class="keyword">FROM</span> emp);	</span><br><span class="line"></span><br><span class="line"> * 子查询的结果是多行单列的：</span><br><span class="line">   1. 子查询可以作为“条件”，使用运算符in判断</span><br><span class="line">   2. 需求练习：查询“财务部”、“市场部”员工信息</span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">	emp.<span class="string">`NAME`</span>,emp.<span class="string">`gender`</span>,dept.<span class="string">`NAME`</span>  <span class="comment">-- 字段列名 员工姓名 性别 部门</span></span><br><span class="line"><span class="keyword">FROM</span> </span><br><span class="line">	emp ,dept <span class="comment">-- 表名 员工表 部门表</span></span><br><span class="line"><span class="keyword">WHERE</span> </span><br><span class="line">	dept_id <span class="keyword">IN</span> (<span class="keyword">SELECT</span> <span class="keyword">id</span> <span class="keyword">FROM</span> dept <span class="keyword">WHERE</span> dept.<span class="string">`NAME`</span> <span class="keyword">IN</span> (<span class="string">&#x27;财务部&#x27;</span>,<span class="string">&#x27;市场部&#x27;</span>)) <span class="comment">-- 条件</span></span><br><span class="line"><span class="keyword">AND</span> </span><br><span class="line">	dept.<span class="string">`id`</span>=emp.<span class="string">`dept_id`</span>;  <span class="comment">-- 条件2</span></span><br><span class="line">	</span><br><span class="line">  * 子查询的结果是多行多列的：</span><br><span class="line">   1. 子查询可以作为一张虚拟表</span><br><span class="line">      <span class="comment">-- 查询员工入职日期是2011-11-11日之后的员工信息和部门信息</span></span><br><span class="line"><span class="comment">-- 子查询</span></span><br><span class="line">      <span class="keyword">SELECT</span> *（所有字段列表）</span><br><span class="line">      <span class="keyword">FROM</span> </span><br><span class="line">        dept t1 ,  (<span class="keyword">SELECT</span> * <span class="keyword">FROM</span> emp <span class="keyword">WHERE</span> emp.<span class="string">`join_date`</span> &gt; <span class="string">&#x27;2011-11-11&#x27;</span>) <span class="keyword">as</span>  t2 （t2是筛选条件结果的虚拟表）</span><br><span class="line">      <span class="keyword">WHERE</span></span><br><span class="line">         t1.id = t2.dept_id;</span><br><span class="line"><span class="comment">-- 普通内连接</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> emp t1,dept t2 <span class="keyword">WHERE</span> t1.<span class="string">`dept_id`</span> = t2.<span class="string">`id`</span> <span class="keyword">AND</span> t1.<span class="string">`join_date`</span> &gt;  <span class="string">&#x27;2011-11-11&#x27;</span></span><br></pre></td></tr></table></figure>
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>佛渡有缘人，施主扫微信<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://i.ibb.co/M84D0j8/20200902230715.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -515,16 +247,84 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%8B%E5%8A%A1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          数据库事务管理
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/09/03/SQL%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SQL基本概念</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -544,440 +344,14 @@
 
 
 
-
-  
-    <article id="post-SQL基本概念" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/03/SQL%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/">SQL基本概念</a>
-    </h1>
-  
-
-        
-        <a href="/2020/09/03/SQL%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="archive-article-date">
-  	<time datetime="2020-09-03T02:31:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h3><p>1.什么是SQL？</p>
-<ul>
-<li><p>结构化查询语言（其实就是定义了操作所有关系型数据库的规则）</p>
-</li>
-<li><p>每一种数据库操作的方式不太一样的地方，称为“方言”</p>
-</li>
-</ul>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">mysql相关概念</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/03/SQL%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-图形化界面工具SQLyog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/03/%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2%E5%B7%A5%E5%85%B7SQLyog/">图形化界面工具SQLyog</a>
-    </h1>
-  
-
-        
-        <a href="/2020/09/03/%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2%E5%B7%A5%E5%85%B7SQLyog/" class="archive-article-date">
-  	<time datetime="2020-09-03T02:31:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.客户端图形化工具：SQLyog</p>
-<hr>
-<h2 id="DML：增删改表中的数据"><a href="#DML：增删改表中的数据" class="headerlink" title="DML：增删改表中的数据"></a>DML：增删改表中的数据</h2><hr>
-<p>1.DML添加数据：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">* 语法：</span><br><span class="line">**insert into 表名（列名1，列名2，...列名n） values（值1，值2，...）；**</span><br><span class="line">注意事项：列名和值要一一对应；</span><br><span class="line">		如果表名后，不定义列名，则默认给所有列添加值</span><br><span class="line">           除了数字类型，其他类型需要引号把数据包括起来</span><br></pre></td></tr></table></figure>
-
-<p>2.删除数据：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">* 语法：</span><br><span class="line">	* delete from 表名 [where 条件]</span><br><span class="line">	注意：如果不加条件，则删除表中所有记录</span><br><span class="line">	* tauncate table stu； -- 删除表，然后在创建一个一模一样的空表</span><br><span class="line">	注意：如果要删除所有记录，第一种：不推荐，有多少条记录就会执行多少次删除操作；第二种，删除表，然后在再创建一张一样的表（效率高，推荐使用）</span><br></pre></td></tr></table></figure>
-
-<p>3.修改数据</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* 语法：</span><br><span class="line">  * update 表名 set 列名 = 值1 ，列名2 = 值2...[where 条件]；</span><br><span class="line">  注意：如果不加添加任何条件，则会将表中所有记录进行修改；</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">mysql相关概念</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/03/%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2%E5%B7%A5%E5%85%B7SQLyog/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Mysql数据库约束" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/01/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BA%A6%E6%9D%9F/">Mysql基础（约束）</a>
-    </h1>
-  
-
-        
-        <a href="/2020/09/01/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BA%A6%E6%9D%9F/" class="archive-article-date">
-  	<time datetime="2020-09-01T14:11:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="约束概述"><a href="#约束概述" class="headerlink" title="约束概述"></a>约束概述</h3><ul>
-<li>概述：对表中的数据进行限定，保证数据的正确性、有效性和完整性。</li>
-<li>分类：<ol>
-<li>主键约束 primary key</li>
-<li>非空约素 not null </li>
-<li>唯一约束 unique</li>
-<li>外键约束 foreign key
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">mysql相关概念</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/01/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BA%A6%E6%9D%9F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Mysql基础（索引、视图、存储引擎）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/31/Mysql%E5%9F%BA%E7%A1%80%EF%BC%88%E7%B4%A2%E5%BC%95%E3%80%81%E8%A7%86%E5%9B%BE%E3%80%81%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%EF%BC%89/">Mysql基础（索引、视图、存储引擎）</a>
-    </h1>
-  
-
-        
-        <a href="/2020/08/31/Mysql%E5%9F%BA%E7%A1%80%EF%BC%88%E7%B4%A2%E5%BC%95%E3%80%81%E8%A7%86%E5%9B%BE%E3%80%81%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-08-31T14:11:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="黑马数据库网课补充："><a href="#黑马数据库网课补充：" class="headerlink" title="黑马数据库网课补充："></a>黑马数据库网课补充：</h3><ul>
-<li><p>网课三天的数据库知识，只是针对开发常用的，有部分概念没有讲。</p>
-</li>
-<li><p>实际工作环境中专门的DBA数据库管理人员维护。</p>
-</li>
-<li><p>个人好奇心所致，把没讲相对重要的三个知识点进行概要补充。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">mysql相关概念</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/31/Mysql%E5%9F%BA%E7%A1%80%EF%BC%88%E7%B4%A2%E5%BC%95%E3%80%81%E8%A7%86%E5%9B%BE%E3%80%81%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%EF%BC%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-数据库的基本概念" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/31/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/">数据库的基本概念</a>
-    </h1>
-  
-
-        
-        <a href="/2020/08/31/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="archive-article-date">
-  	<time datetime="2020-08-31T14:11:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>数据库的英文单词：DataBase（DB）数据库<ul>
-<li>什么是数据库？<ul>
-<li>用于存储和管理数据的仓库</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>数据库的特点：<ul>
-<li>持久化存储数据（ps：其实数据库就是一个文件系统）</li>
-<li>方便存储和管理数据</li>
-<li>使用统一的方式操作数据库 – SQL</li>
-</ul>
-</li>
-<li>常见的数据软件：<ul>
-<li>Oracle 数据库</li>
-<li>MySql 数据库</li>
-<li>SQL Server 数据库</li>
-</ul>
-</li>
-</ul>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">mysql相关概念</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/31/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -1005,8 +379,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
