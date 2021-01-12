@@ -170,6 +170,7 @@
 
         
         <a href="/2020/09/01/MicroService(%E5%BE%AE%E6%9C%8D%E5%8A%A1)%E6%9E%B6%E6%9E%84/" class="archive-article-date">
+     
   	<time datetime="2020-09-01T12:05:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-01</time>
 </a>
         
@@ -249,6 +250,7 @@
 
         
         <a href="/2019/11/22/Spring/" class="archive-article-date">
+     
   	<time datetime="2019-11-22T13:02:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
 </a>
         
@@ -311,80 +313,6 @@
 
 
   
-    <article id="post-数据库DCL权限管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93DCL%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">数据库DCL权限了解</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93DCL%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" class="archive-article-date">
-  	<time datetime="2017-09-06T08:05:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="DCL-管理用户"><a href="#DCL-管理用户" class="headerlink" title="DCL 管理用户"></a>DCL 管理用户</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">* 管理用户（授权）（主机名 ： localhost 或者 % 代表任意主机 ）</span><br><span class="line">  1. 管理用户：</span><br><span class="line">  * 添加用户：create user &#x27;用户名&#x27;@&#x27;主机名 &#x27; inentified by &#x27;密码&#x27;</span><br><span class="line">  * 删除用户： drop user  &#x27;用户名&#x27;@&#x27;主机名 &#x27;</span><br><span class="line">  * 修改用户密码：</span><br><span class="line">    1. 修改密码的两种语法：</span><br><span class="line">     * UPDATE USER SET PASSWORD = PASSWORD(&#x27;新密码&#x27;) WHERE USER = &#x27;用户名&#x27;;</span><br><span class="line">     * SET PASSWORD FOR &#x27;用户名&#x27;@&#x27;主机名&#x27; = PASSWORD(&#x27;新密码&#x27;);</span><br><span class="line">    2. 特殊情况：mysql中忘记了root用户的密码？</span><br><span class="line">     * cmd -- &gt; net stop mysql 停止mysql服务（需要管理员运行该cmd）</span><br><span class="line">     * 使用无验证方式启动mysql服务： mysqld --skip-grant-tables</span><br><span class="line">     * 打开新的cmd窗口,直接输入mysql命令，敲回车。就可以登录成功</span><br><span class="line">     * use mysql;</span><br><span class="line">     * update user set password = password(&#x27;你的新密码&#x27;) where user = &#x27;root&#x27;;</span><br><span class="line">     * 关闭两个窗口</span><br><span class="line">     * 打开任务管理器，手动结束mysqld.exe 的进程</span><br><span class="line">     * 启动mysql服务</span><br><span class="line">     * 使用新密码登录</span><br><span class="line">  * 查询用户名：</span><br><span class="line">    1. 切换到mysql数据库 <span class="keyword">use</span> mysql</span><br><span class="line">    <span class="number">2.</span> 查询<span class="keyword">user</span>表 <span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">user</span></span><br><span class="line">    <span class="number">3.</span> 注意：通配符 % 表示可以在任意主机使用用户登录数据库</span><br><span class="line"></span><br><span class="line"> <span class="number">2.</span> 授予/撤销权限：</span><br><span class="line">  * 授予权限：<span class="keyword">grant</span> 权限列表 <span class="keyword">on</span> 数据库名.表名 <span class="keyword">to</span> <span class="string">&#x27;用户名&#x27;</span>@<span class="string">&#x27;主机名&#x27;</span>;</span><br><span class="line">  * 撤销权限：revoke 权限列表 on 数据库名.表名 from &#x27;用户名&#x27;@&#x27;主机名&#x27;;</span><br><span class="line">  * 查询权限：show grants for  &#x27;用户名&#x27;@&#x27;主机名 &#x27; </span><br><span class="line">  * 注意：通配符 all 代表所有权限 </span><br><span class="line">                *.* 所有库的所有表</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93DCL%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-数据库DQL查询表中记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -398,6 +326,7 @@
 
         
         <a href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93DQL%E6%9F%A5%E8%AF%A2%E8%A1%A8%E4%B8%AD%E8%AE%B0%E5%BD%95/" class="archive-article-date">
+     
   	<time datetime="2017-09-06T08:05:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-06</time>
 </a>
         
@@ -459,6 +388,81 @@
 
 
   
+    <article id="post-数据库DCL权限管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93DCL%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">数据库DCL权限了解</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93DCL%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" class="archive-article-date">
+     
+  	<time datetime="2017-09-06T08:05:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="DCL-管理用户"><a href="#DCL-管理用户" class="headerlink" title="DCL 管理用户"></a>DCL 管理用户</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">* 管理用户（授权）（主机名 ： localhost 或者 % 代表任意主机 ）</span><br><span class="line">  1. 管理用户：</span><br><span class="line">  * 添加用户：create user &#x27;用户名&#x27;@&#x27;主机名 &#x27; inentified by &#x27;密码&#x27;</span><br><span class="line">  * 删除用户： drop user  &#x27;用户名&#x27;@&#x27;主机名 &#x27;</span><br><span class="line">  * 修改用户密码：</span><br><span class="line">    1. 修改密码的两种语法：</span><br><span class="line">     * UPDATE USER SET PASSWORD = PASSWORD(&#x27;新密码&#x27;) WHERE USER = &#x27;用户名&#x27;;</span><br><span class="line">     * SET PASSWORD FOR &#x27;用户名&#x27;@&#x27;主机名&#x27; = PASSWORD(&#x27;新密码&#x27;);</span><br><span class="line">    2. 特殊情况：mysql中忘记了root用户的密码？</span><br><span class="line">     * cmd -- &gt; net stop mysql 停止mysql服务（需要管理员运行该cmd）</span><br><span class="line">     * 使用无验证方式启动mysql服务： mysqld --skip-grant-tables</span><br><span class="line">     * 打开新的cmd窗口,直接输入mysql命令，敲回车。就可以登录成功</span><br><span class="line">     * use mysql;</span><br><span class="line">     * update user set password = password(&#x27;你的新密码&#x27;) where user = &#x27;root&#x27;;</span><br><span class="line">     * 关闭两个窗口</span><br><span class="line">     * 打开任务管理器，手动结束mysqld.exe 的进程</span><br><span class="line">     * 启动mysql服务</span><br><span class="line">     * 使用新密码登录</span><br><span class="line">  * 查询用户名：</span><br><span class="line">    1. 切换到mysql数据库 <span class="keyword">use</span> mysql</span><br><span class="line">    <span class="number">2.</span> 查询<span class="keyword">user</span>表 <span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">user</span></span><br><span class="line">    <span class="number">3.</span> 注意：通配符 % 表示可以在任意主机使用用户登录数据库</span><br><span class="line"></span><br><span class="line"> <span class="number">2.</span> 授予/撤销权限：</span><br><span class="line">  * 授予权限：<span class="keyword">grant</span> 权限列表 <span class="keyword">on</span> 数据库名.表名 <span class="keyword">to</span> <span class="string">&#x27;用户名&#x27;</span>@<span class="string">&#x27;主机名&#x27;</span>;</span><br><span class="line">  * 撤销权限：revoke 权限列表 on 数据库名.表名 from &#x27;用户名&#x27;@&#x27;主机名&#x27;;</span><br><span class="line">  * 查询权限：show grants for  &#x27;用户名&#x27;@&#x27;主机名 &#x27; </span><br><span class="line">  * 注意：通配符 all 代表所有权限 </span><br><span class="line">                *.* 所有库的所有表</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93DCL%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-数据库事务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -472,6 +476,7 @@
 
         
         <a href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%8B%E5%8A%A1/" class="archive-article-date">
+     
   	<time datetime="2017-09-06T08:05:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-06</time>
 </a>
         
@@ -549,6 +554,82 @@
 
 
   
+    <article id="post-数据库设计(多表、范式)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1(%E5%A4%9A%E8%A1%A8%E3%80%81%E8%8C%83%E5%BC%8F)/">数据库设计（范式，多表关系）</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1(%E5%A4%9A%E8%A1%A8%E3%80%81%E8%8C%83%E5%BC%8F)/" class="archive-article-date">
+     
+  	<time datetime="2017-09-06T08:05:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>数据库设计多表之间的关系：<br>  1.一对一（了解）：实际开发使用情况较少 例子：人和身份证<br>  2.一对多（多对一）  例子：员工和部门的关系<br>  3.多对多         例子： 学生和课程（可以多项选择）</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1(%E5%A4%9A%E8%A1%A8%E3%80%81%E8%8C%83%E5%BC%8F)/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-数据库多表查询" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -562,6 +643,7 @@
 
         
         <a href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/" class="archive-article-date">
+     
   	<time datetime="2017-09-06T08:05:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-06</time>
 </a>
         
@@ -625,81 +707,6 @@
 
 
   
-    <article id="post-数据库设计(多表、范式)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1(%E5%A4%9A%E8%A1%A8%E3%80%81%E8%8C%83%E5%BC%8F)/">数据库设计（范式，多表关系）</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1(%E5%A4%9A%E8%A1%A8%E3%80%81%E8%8C%83%E5%BC%8F)/" class="archive-article-date">
-  	<time datetime="2017-09-06T08:05:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><p>数据库设计多表之间的关系：<br>  1.一对一（了解）：实际开发使用情况较少 例子：人和身份证<br>  2.一对多（多对一）  例子：员工和部门的关系<br>  3.多对多         例子： 学生和课程（可以多项选择）</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1(%E5%A4%9A%E8%A1%A8%E3%80%81%E8%8C%83%E5%BC%8F)/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-SQL基本概念" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -713,6 +720,7 @@
 
         
         <a href="/2017/09/03/SQL%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="archive-article-date">
+     
   	<time datetime="2017-09-03T02:31:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-03</time>
 </a>
         
@@ -797,6 +805,7 @@
 
         
         <a href="/2017/09/01/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BA%A6%E6%9D%9F/" class="archive-article-date">
+     
   	<time datetime="2017-09-01T14:11:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-01</time>
 </a>
         
@@ -877,6 +886,7 @@
 
         
         <a href="/2017/08/31/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="archive-article-date">
+     
   	<time datetime="2017-08-31T14:11:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-31</time>
 </a>
         
@@ -975,16 +985,26 @@
     		&copy; 2021 鄙人，孙肥肥
     	</div>
       	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      		<a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a>
       	</div>
     </div>
   </div>
+     <!--页面点击小红心-->
+    <script type="text/javascript" src="/love.js"></script>
+    <!--不蒜子统计-->
+    
+        <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_site_pv">
+                本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        </span>
+        <span class="post-meta-divider">|</span>
+        <span id="busuanzi_container_site_uv" style='display:none'>
+                本站访客数<span id="busuanzi_value_site_uv"></span>人
+        </span>
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+     
 </footer>
-    <!--页面点击小红心-->
-    <script type="text/javascript" src="/love.js">
-
-
-</script>
+   
     </div>
     <script>
 	var yiliaConfig = {
