@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | 睡着的羊</title>
+  <title>SFTPGo 服务器部署 | 睡着的羊</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="睡着的羊">
-<meta property="og:url" content="http://yoursite.com/archives/2020/index.html">
+  <meta name="description" content="一、关于SFTPGo一点自得1. 这玩意是什么？ 一款功能齐全且高度可配置的SFTP服务器，带个Go是因为drakkan用Golang语言编写的。 支持虚拟账户、虚拟目录、不需要文件传输的标记文件、ftp&#x2F;sftp&#x2F;WebDAV协议支持，更好的支持文件传输上传下载  2.为什么写这篇博客 因为中文文档实在太少了，所幸github开发者很友好，有问题能善意的给出解答。 在此也想帮助其他有需要的朋友，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SFTPGo 服务器部署">
+<meta property="og:url" content="http://yoursite.com/2021/05/05/SFTPGo%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E5%85%A5%E9%97%A8/index.html">
 <meta property="og:site_name" content="睡着的羊">
+<meta property="og:description" content="一、关于SFTPGo一点自得1. 这玩意是什么？ 一款功能齐全且高度可配置的SFTP服务器，带个Go是因为drakkan用Golang语言编写的。 支持虚拟账户、虚拟目录、不需要文件传输的标记文件、ftp&#x2F;sftp&#x2F;WebDAV协议支持，更好的支持文件传输上传下载  2.为什么写这篇博客 因为中文文档实在太少了，所幸github开发者很友好，有问题能善意的给出解答。 在此也想帮助其他有需要的朋友，">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-05-05T01:32:22.000Z">
+<meta property="article:modified_time" content="2021-05-05T06:52:03.082Z">
 <meta property="article:author" content="鄙人，孙肥肥">
+<meta property="article:tag" content="随笔">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="睡着的羊" type="application/atom+xml">
@@ -155,37 +160,137 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-SFTPGo服务器部署入门" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/01/MicroService(%E5%BE%AE%E6%9C%8D%E5%8A%A1)%E6%9E%B6%E6%9E%84/" class="archive-article-date">
-     
-  	<time datetime="2020-09-01T12:05:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-01</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/01/MicroService(%E5%BE%AE%E6%9C%8D%E5%8A%A1)%E6%9E%B6%E6%9E%84/">springcloud微服务架构入门</a>
+    <h1 class="article-title" itemprop="name">
+      SFTPGo 服务器部署
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2021/05/05/SFTPGo%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E5%85%A5%E9%97%A8/" class="archive-article-date">
+    
+        <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+     
+  	<time datetime="2021-05-05T01:32:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、关于SFTPGo一点自得"><a href="#一、关于SFTPGo一点自得" class="headerlink" title="一、关于SFTPGo一点自得"></a>一、关于SFTPGo一点自得</h3><h4 id="1-这玩意是什么？"><a href="#1-这玩意是什么？" class="headerlink" title="1. 这玩意是什么？"></a>1. 这玩意是什么？</h4><blockquote>
+<p>一款功能齐全且高度可配置的SFTP服务器，带个Go是因为drakkan用Golang语言编写的。</p>
+<p>支持虚拟账户、虚拟目录、不需要文件传输的标记文件、ftp/sftp/WebDAV协议支持，更好的支持文件传输上传下载</p>
+</blockquote>
+<h4 id="2-为什么写这篇博客"><a href="#2-为什么写这篇博客" class="headerlink" title="2.为什么写这篇博客"></a>2.为什么写这篇博客</h4><blockquote>
+<p>因为中文文档实在太少了，所幸github开发者很友好，有问题能善意的给出解答。</p>
+<p>在此也想帮助其他有需要的朋友，闲话到此咱们开始吧。</p>
+</blockquote>
+<a id="more"></a>
+
+<hr>
+<h3 id="二、SFTPGo的准备工作"><a href="#二、SFTPGo的准备工作" class="headerlink" title="二、SFTPGo的准备工作"></a>二、SFTPGo的准备工作</h3><h4 id="1-环境搭建"><a href="#1-环境搭建" class="headerlink" title="1.环境搭建"></a>1.环境搭建</h4><blockquote>
+<p>SFTPGo支持windows/centos/ubuntu </p>
+<p>只不过我想会用到这个的场景还是linux系的系统居多，我个人是在centos搭建的，其他也差不多的，完全没问题</p>
+</blockquote>
+<h5 id="1-1-golang语言环境安装"><a href="#1-1-golang语言环境安装" class="headerlink" title="1.1 golang语言环境安装"></a>1.1 golang语言环境安装</h5><ul>
+<li>下载golang安装包 官方需要1.12版本的</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 解压安装包</span></span><br><span class="line">tar -zxf /var/download/go1.12.10.linux-amd64.tar.gz -C /usr/lib/ </span><br><span class="line"><span class="meta">#</span><span class="bash"> 配置环境变量</span></span><br><span class="line">vim /etc/profile</span><br><span class="line"><span class="meta">#</span><span class="bash"> 在文件的末尾添加如下代码：</span></span><br><span class="line">export GOROOT=/usr/lib/golang</span><br><span class="line">export GOPATH=/var/goproject</span><br><span class="line">export PATH=$PATH:$GOROOT/bin</span><br><span class="line"><span class="meta">#</span><span class="bash"> 启用</span></span><br><span class="line">source /etc/profile</span><br><span class="line"><span class="meta">#</span><span class="bash"> 测试安装 查看版本</span></span><br><span class="line">go version </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>自带sqlite数据库 </li>
+</ul>
+<blockquote>
+<p>有需要可切换其他数据库<code>MySQL</code> / <code>PostreSQL</code> / <code>SQLite</code></p>
+</blockquote>
+<ul>
+<li>如果需要运行 <code>Cli</code> 测试脚本，还需要 <code>Python</code> 环境和 <code>Request</code> 库</li>
+</ul>
+<h4 id="2-安装SFTPGo安装"><a href="#2-安装SFTPGo安装" class="headerlink" title="2. 安装SFTPGo安装"></a>2. 安装SFTPGo安装</h4><blockquote>
+<p>目前已更新至2.0.3版本 支持多种安装方式，我选的简单的npm安装</p>
+</blockquote>
+<h5 id="2-1-下载安装包"><a href="#2-1-下载安装包" class="headerlink" title="2.1 下载安装包"></a>2.1 下载安装包</h5><blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/drakkan/sftpgo/releases/tag/v2.0.3">https://github.com/drakkan/sftpgo/releases/tag/v2.0.3</a></p>
+<p>yum install -y sftpgo-2.0.3-1.x86_64.rpm  </p>
+</blockquote>
+<hr>
+<h3 id="三、你应该知道的启动、运行和配置"><a href="#三、你应该知道的启动、运行和配置" class="headerlink" title="三、你应该知道的启动、运行和配置"></a>三、你应该知道的启动、运行和配置</h3><h4 id="3-1-简单运行"><a href="#3-1-简单运行" class="headerlink" title="3.1.简单运行"></a>3.1.简单运行</h4><blockquote>
+<p>如果是yum安装方式，会把启动程序存放在/usr/bin/路径下</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 启动程序</span></span><br><span class="line">cd /usr/bin/ </span><br><span class="line">./sftpgo</span><br><span class="line"><span class="meta">#</span><span class="bash"> 一些选项</span></span><br><span class="line">sftpgo initprovider 初始化</span><br><span class="line">sftpgo serve 启动服务</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-运行起来还不够，我们来看看配置"><a href="#3-2-运行起来还不够，我们来看看配置" class="headerlink" title="3.2.运行起来还不够，我们来看看配置"></a>3.2.运行起来还不够，我们来看看配置</h4><blockquote>
+<p>如果是yum安装方式，会把配置文件存放在/etc/sftpgo路径下</p>
+</blockquote>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;common&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;idle_timeout&quot;</span>: <span class="number">15</span>,<span class="comment">//以分鐘為單位的時間，之後閒置的客戶端將被斷開連接</span></span><br><span class="line">    <span class="attr">&quot;upload_mode&quot;</span>: <span class="number">0</span>, <span class="comment">//设置上传的模式</span></span><br><span class="line">    <span class="attr">&quot;actions&quot;</span>: &#123;</span><br><span class="line">      <span class="attr">&quot;execute_on&quot;</span>: [], <span class="comment">// 定义某个操作出发hook</span></span><br><span class="line">      <span class="attr">&quot;hook&quot;</span>: <span class="string">&quot;&quot;</span> <span class="comment">//hook執行的命令或要通知的HTTP URL的絕對路徑</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">&quot;setstat_mode&quot;</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">&quot;proxy_protocol&quot;</span>: <span class="number">0</span>, <span class="comment">//代理相关</span></span><br><span class="line">    <span class="attr">&quot;proxy_allowed&quot;</span>: [], <span class="comment">//代理相关 测试允许的ip地址段</span></span><br><span class="line">    <span class="attr">&quot;post_connect_hook&quot;</span>: <span class="string">&quot;&quot;</span>,<span class="comment">//要執行的命令或要通知的HTTP URL的絕對路徑</span></span><br><span class="line">    <span class="attr">&quot;max_total_connections&quot;</span>: <span class="number">0</span>, <span class="comment">//允许用户连接的最大数</span></span><br><span class="line">    <span class="attr">&quot;defender&quot;</span>: &#123;</span><br><span class="line">      <span class="attr">&quot;enabled&quot;</span>: <span class="literal">false</span>, <span class="comment">//默认关闭</span></span><br><span class="line">      <span class="attr">&quot;ban_time&quot;</span>: <span class="number">30</span>,  <span class="comment">//禁止的时间</span></span><br><span class="line">      <span class="attr">&quot;ban_time_increment&quot;</span>: <span class="number">50</span>,<span class="comment">//如果被禁止的主機嘗試重新連接，則以百分比為單位禁止時間增量。</span></span><br><span class="line">      <span class="attr">&quot;threshold&quot;</span>: <span class="number">15</span>,<span class="comment">//禁止客戶端的閾值。</span></span><br><span class="line">      <span class="attr">&quot;score_invalid&quot;</span>: <span class="number">2</span>,<span class="comment">//為無效的登錄嘗試評分</span></span><br><span class="line">      <span class="attr">&quot;score_valid&quot;</span>: <span class="number">1</span>,<span class="comment">//為有效的登錄嘗試評分</span></span><br><span class="line">      <span class="attr">&quot;observation_time&quot;</span>: <span class="number">30</span>,<span class="comment">//定義時間窗口（以分鐘為單位），用於跟踪客戶端錯誤</span></span><br><span class="line">      <span class="attr">&quot;entries_soft_limit&quot;</span>: <span class="number">100</span>,</span><br><span class="line">      <span class="attr">&quot;entries_hard_limit&quot;</span>: <span class="number">150</span>,</span><br><span class="line">      <span class="attr">&quot;safelist_file&quot;</span>: <span class="string">&quot;&quot;</span>,<span class="comment">//包含永不禁止的IP地址和/或網絡列表的文件的路徑。</span></span><br><span class="line">      <span class="attr">&quot;blocklist_file&quot;</span>: <span class="string">&quot;&quot;</span><span class="comment">//包含始終禁止的IP地址和/或網絡列表的文件的路徑。</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">&quot;sftpd&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;bindings&quot;</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">&quot;port&quot;</span>: <span class="number">2022</span>, <span class="comment">//sftpd连接端口 默认2022</span></span><br><span class="line">        <span class="attr">&quot;address&quot;</span>: <span class="string">&quot;&quot;</span>,<span class="comment">//留空以偵聽所有可用的網絡接口</span></span><br><span class="line">        <span class="attr">&quot;apply_proxy_config&quot;</span>: <span class="literal">true</span></span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">&quot;max_auth_tries&quot;</span>: <span class="number">0</span>, <span class="comment">//每個連接允許的最大身份驗證嘗試次數  如果設置為負數，則嘗試次數是無限的。如果設置為零，則嘗試次數限制為6。</span></span><br><span class="line">    <span class="attr">&quot;banner&quot;</span>: <span class="string">&quot;&quot;</span>,<span class="comment">//服務器使用的標識字符串</span></span><br><span class="line">    <span class="attr">&quot;host_keys&quot;</span>: [],<span class="comment">//它包含守護程序的專用主機密鑰,如果為空，則守護程序將搜索或嘗試生成id_rsa，id_ecdsa並id_ed25519在配置目錄中鍵入密鑰</span></span><br><span class="line">    <span class="attr">&quot;kex_algorithms&quot;</span>: [],<span class="comment">//可用的KEX（密鑰交換）算法按優先級順序排列</span></span><br><span class="line">    <span class="attr">&quot;ciphers&quot;</span>: [],</span><br><span class="line">    <span class="attr">&quot;macs&quot;</span>: [],</span><br><span class="line">    <span class="attr">&quot;trusted_user_ca_keys&quot;</span>: [],</span><br><span class="line">    <span class="attr">&quot;login_banner_file&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;enabled_ssh_commands&quot;</span>: [ <span class="comment">//已啟用的SSH命令列表。*啟用所有受支持的命令</span></span><br><span class="line">      <span class="string">&quot;md5sum&quot;</span>,</span><br><span class="line">      <span class="string">&quot;sha1sum&quot;</span>,</span><br><span class="line">      <span class="string">&quot;cd&quot;</span>,</span><br><span class="line">      <span class="string">&quot;pwd&quot;</span>,</span><br><span class="line">      <span class="string">&quot;scp&quot;</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">&quot;keyboard_interactive_auth_hook&quot;</span>: <span class="string">&quot;&quot;</span>,<span class="comment">//調用鍵盤交互式身份驗證的外部程序或HTTP URL的絕對路徑	</span></span><br><span class="line">    <span class="attr">&quot;password_authentication&quot;</span>: <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">&quot;ftpd&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;bindings&quot;</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">&quot;port&quot;</span>: <span class="number">0</span>, <span class="comment">//配置ftp端口</span></span><br><span class="line">        <span class="attr">&quot;address&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;apply_proxy_config&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">&quot;tls_mode&quot;</span>: <span class="number">0</span>,<span class="comment">//0表示同時接受明文和加密會話。1表示控制和數據連接都需要TLS。2表示隱式TLS</span></span><br><span class="line">        <span class="attr">&quot;force_passive_ip&quot;</span>: <span class="string">&quot;&quot;</span>,<span class="comment">//公開用於被動連接的外部IP地址</span></span><br><span class="line">        <span class="attr">&quot;client_auth_type&quot;</span>: <span class="number">0</span><span class="comment">//設置為1需要客戶端證書並進行驗證。設置為2在TLS握手期間請求客戶端證書，並驗證該證書（如果已提供），在這種模式下，允許客戶端不發送證書。為了驗證客戶證書，必須至少定義一個證書頒發機構。如果未定義證書頒發機構，則忽略此設置。默認值：0</span></span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">&quot;banner&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;banner_file&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;active_transfers_port_non_20&quot;</span>: <span class="literal">true</span>,<span class="comment">//啟用此選項將允許以較少的特權運行SFTPGo</span></span><br><span class="line">    <span class="attr">&quot;passive_port_range&quot;</span>: &#123;<span class="comment">//數據連接的端口範圍</span></span><br><span class="line">      <span class="attr">&quot;start&quot;</span>: <span class="number">50000</span>,</span><br><span class="line">      <span class="attr">&quot;end&quot;</span>: <span class="number">50100</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">&quot;disable_active_mode&quot;</span>: <span class="literal">false</span>,<span class="comment">//設置為true禁用活跃FTP</span></span><br><span class="line">    <span class="attr">&quot;enable_site&quot;</span>: <span class="literal">false</span>,<span class="comment">//設置為true以啟用FTP SITE命令</span></span><br><span class="line">    <span class="attr">&quot;hash_support&quot;</span>: <span class="number">0</span>,<span class="comment">//設置為1啟用FTP命令，該命令允許計算文件的哈希值</span></span><br><span class="line">      <span class="comment">//要計算散列，我們需要讀取整個文件，對於遠程後端，這意味著下載文件，對於加密後端，這意味著解密文件。默認值0。</span></span><br><span class="line">    <span class="attr">&quot;combine_support&quot;</span>: <span class="number">0</span>,<span class="comment">//僅本地文件系統支持Combine</span></span><br><span class="line">    <span class="attr">&quot;certificate_file&quot;</span>: <span class="string">&quot;&quot;</span>,<span class="comment">//FTPS證書。這可以是絕對路徑，也可以是相對於配置目錄的路徑。</span></span><br><span class="line">    <span class="attr">&quot;certificate_key_file&quot;</span>: <span class="string">&quot;&quot;</span>,<span class="comment">//與上述證書匹配的私鑰。這可以是絕對路徑，也可以是相對於配置目錄的路徑。</span></span><br><span class="line">    <span class="attr">&quot;ca_certificates&quot;</span>: [],</span><br><span class="line">    <span class="attr">&quot;ca_revocation_lists&quot;</span>: []</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">&quot;webdavd&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;bindings&quot;</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">&quot;port&quot;</span>: <span class="number">0</span>,<span class="comment">//用於服務WebDAV請求的端口。0表示禁用。</span></span><br><span class="line">        <span class="attr">&quot;address&quot;</span>: <span class="string">&quot;&quot;</span>,<span class="comment">//留空以偵聽所有可用的網絡接口</span></span><br><span class="line">        <span class="attr">&quot;enable_https&quot;</span>: <span class="literal">false</span>,<span class="comment">//設置為true並提供證書和密鑰文件以啟用此綁定的HTTPS連接</span></span><br><span class="line">        <span class="attr">&quot;client_auth_type&quot;</span>: <span class="number">0</span></span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">&quot;certificate_file&quot;</span>: <span class="string">&quot;&quot;</span>, <span class="comment">//通過HTTPS的WebDAV的證書。這可以是絕對路徑，也可以是相對於配置目錄的路徑。</span></span><br><span class="line">    <span class="attr">&quot;certificate_key_file&quot;</span>: <span class="string">&quot;&quot;</span>,<span class="comment">//與上述證書匹配的私鑰。這可以是絕對路徑，也可以是相對於配置目錄的路徑。</span></span><br><span class="line">    <span class="attr">&quot;ca_certificates&quot;</span>: [],</span><br><span class="line">    <span class="attr">&quot;ca_revocation_lists&quot;</span>: [],</span><br><span class="line">    <span class="attr">&quot;cors&quot;</span>: &#123; </span><br><span class="line">        <span class="comment">//CORS配置的結構  设置跨域相关</span></span><br><span class="line">      <span class="attr">&quot;enabled&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="attr">&quot;allowed_origins&quot;</span>: [],</span><br><span class="line">      <span class="attr">&quot;allowed_methods&quot;</span>: [],</span><br><span class="line">      <span class="attr">&quot;allowed_headers&quot;</span>: [],</span><br><span class="line">      <span class="attr">&quot;exposed_headers&quot;</span>: [],</span><br><span class="line">      <span class="attr">&quot;allow_credentials&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="attr">&quot;max_age&quot;</span>: <span class="number">0</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">&quot;cache&quot;</span>: &#123;</span><br><span class="line">        <span class="comment">//已驗證用戶的緩存配置的struct。</span></span><br><span class="line">      <span class="attr">&quot;users&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;expiration_time&quot;</span>: <span class="number">0</span>, <span class="comment">//緩存用戶的到期時間（以分鐘為單位）。0表示無限制。</span></span><br><span class="line">        <span class="attr">&quot;max_size&quot;</span>: <span class="number">50</span> <span class="comment">//要緩存的最大用戶數。0表示無限制。</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">&quot;mime_types&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;enabled&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">&quot;max_size&quot;</span>: <span class="number">1000</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">&quot;data_provider&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;driver&quot;</span>: <span class="string">&quot;sqlite&quot;</span>, <span class="comment">// 数据库信息</span></span><br><span class="line">    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;sftpgo.db&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;host&quot;</span>: <span class="string">&quot;&quot;</span>, <span class="comment">//地址</span></span><br><span class="line">    <span class="attr">&quot;port&quot;</span>: <span class="number">0</span>,  <span class="comment">//端口</span></span><br><span class="line">    <span class="attr">&quot;username&quot;</span>: <span class="string">&quot;&quot;</span>, <span class="comment">//用户名称</span></span><br><span class="line">    <span class="attr">&quot;password&quot;</span>: <span class="string">&quot;&quot;</span>, <span class="comment">//用户密码</span></span><br><span class="line">    <span class="attr">&quot;sslmode&quot;</span>: <span class="number">0</span>, <span class="comment">//用於驅動程序mysql和postgresql。0禁用SSL / TLS連接，1要求ssl，2設置ssl模式verify-ca為驅動程序</span></span><br><span class="line">    <span class="attr">&quot;connection_string&quot;</span>: <span class="string">&quot;&quot;</span>, <span class="comment">//提供自定義數據庫連接字符串</span></span><br><span class="line">    <span class="attr">&quot;sql_tables_prefix&quot;</span>: <span class="string">&quot;&quot;</span>, <span class="comment">//SQL表的前綴</span></span><br><span class="line">    <span class="attr">&quot;track_quota&quot;</span>: <span class="number">2</span>,<span class="comment">//設置首選模式以在以下選項之間跟踪用戶配額</span></span><br><span class="line">    <span class="attr">&quot;pool_size&quot;</span>: <span class="number">0</span>,<span class="comment">//驅動程序的最大打開連接數。默認值0（無限制）</span></span><br><span class="line">    <span class="attr">&quot;users_base_dir&quot;</span>: <span class="string">&quot;&quot;</span>,<span class="comment">//用戶默認的基本目錄。如果在添加新用戶時未定義home dir，並且此值是有效的絕對路徑，則該用戶home dir將自動定義為將基本dir和用戶名結合起來獲得的路徑</span></span><br><span class="line">    <span class="attr">&quot;actions&quot;</span>: &#123;</span><br><span class="line">      <span class="attr">&quot;execute_on&quot;</span>: [],<span class="comment">//它包含要執行的命令和/或要通知的HTTP URL以及觸發條件</span></span><br><span class="line">      <span class="attr">&quot;hook&quot;</span>: <span class="string">&quot;&quot;</span><span class="comment">//要執行的命令或要通知的HTTP URL的絕對路徑。</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">&quot;external_auth_hook&quot;</span>: <span class="string">&quot;&quot;</span>,<span class="comment">//外部程序或HTTP URL的絕對路徑，以調用以進行用戶身份驗證</span></span><br><span class="line">    <span class="attr">&quot;external_auth_scope&quot;</span>: <span class="number">0</span>,<span class="comment">//0表示所有受支持的身份驗證範圍（密碼，公鑰和鍵盤交互）</span></span><br><span class="line">    <span class="attr">&quot;credentials_path&quot;</span>: <span class="string">&quot;credentials&quot;</span>,<span class="comment">//定義了用於存儲用戶提供的憑證文件</span></span><br><span class="line">    <span class="attr">&quot;prefer_database_credentials&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">&quot;pre_login_hook&quot;</span>: <span class="string">&quot;&quot;</span>,<span class="comment">//登錄前要調用以修改用戶詳細信息的外部程序或HTTP URL的絕對路徑</span></span><br><span class="line">    <span class="attr">&quot;post_login_hook&quot;</span>: <span class="string">&quot;&quot;</span>,<span class="comment">//外部程序或HTTP URL的絕對路徑，以調用以通知登錄成功或失敗</span></span><br><span class="line">    <span class="attr">&quot;post_login_scope&quot;</span>: <span class="number">0</span>,<span class="comment">//定義登錄後掛鉤的範圍。0表示通知登錄失敗和成功。1表示通知失敗的登錄。2表示通知成功登錄。</span></span><br><span class="line">    <span class="attr">&quot;check_password_hook&quot;</span>: <span class="string">&quot;&quot;</span>,<span class="comment">//外部程序或要檢查用戶提供的密碼而調用的HTTP URL的絕對路徑</span></span><br><span class="line">    <span class="attr">&quot;check_password_scope&quot;</span>: <span class="number">0</span>,<span class="comment">//定義檢查密碼掛鉤的範圍。0表示所有協議，1表示SSH，2表示FTP，4表示WebDAV。</span></span><br><span class="line">      <span class="comment">//合併範圍，例如6表示FTP和WebDAV。</span></span><br><span class="line">    <span class="attr">&quot;password_hashing&quot;</span>: &#123;<span class="comment">//它包含用於生成密碼哈希的配置參數</span></span><br><span class="line">      <span class="attr">&quot;argon2_options&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;memory&quot;</span>: <span class="number">65536</span>,<span class="comment">//算法使用的內存量 小内存服务器 改小吧 相信我</span></span><br><span class="line">        <span class="attr">&quot;iterations&quot;</span>: <span class="number">1</span>,<span class="comment">//內存上的迭代次數</span></span><br><span class="line">        <span class="attr">&quot;parallelism&quot;</span>: <span class="number">2</span><span class="comment">//該算法使用的線程（或通道）數</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">&quot;update_mode&quot;</span>: <span class="number">0</span><span class="comment">//定義如何初始化/更新數據庫。0表示自動。1表示手動使用initprovider子命令。</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">&quot;httpd&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;bindings&quot;</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">&quot;port&quot;</span>: <span class="number">0</span>,<span class="comment">//访问可使界面端口</span></span><br><span class="line">        <span class="attr">&quot;address&quot;</span>: <span class="string">&quot;127.0.0.1&quot;</span>, <span class="comment">// 本地ip地址</span></span><br><span class="line">        <span class="attr">&quot;enable_web_admin&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">&quot;enable_https&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">        <span class="attr">&quot;client_auth_type&quot;</span>: <span class="number">0</span></span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">&quot;templates_path&quot;</span>: <span class="string">&quot;templates&quot;</span>,<span class="comment">//HTML Web模板的路徑</span></span><br><span class="line">    <span class="attr">&quot;static_files_path&quot;</span>: <span class="string">&quot;static&quot;</span>,<span class="comment">//如果templates_path和static_files_path都為空，則內置的Web界面將被禁用</span></span><br><span class="line">    <span class="attr">&quot;backups_path&quot;</span>: <span class="string">&quot;backups&quot;</span>,<span class="comment">//備份目錄的路徑 安全原因，我們不允許在任意路徑中進行備份</span></span><br><span class="line">    <span class="attr">&quot;certificate_file&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;certificate_key_file&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;ca_certificates&quot;</span>: [],</span><br><span class="line">    <span class="attr">&quot;ca_revocation_lists&quot;</span>: []</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">&quot;telemetry&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;bind_port&quot;</span>: <span class="number">10000</span>, <span class="comment">//用於服務HTTP請求的端口。設置為0以禁用HTTP服務器</span></span><br><span class="line">    <span class="attr">&quot;bind_address&quot;</span>: <span class="string">&quot;&quot;</span>,<span class="comment">//留空以偵聽所有可用的網絡接口</span></span><br><span class="line">    <span class="attr">&quot;enable_profiler&quot;</span>: <span class="literal">false</span>,<span class="comment">//啟用內置事件探查器</span></span><br><span class="line">    <span class="attr">&quot;auth_user_file&quot;</span>: <span class="string">&quot;&quot;</span>,<span class="comment">//用於存儲用於基本身份驗證的用戶名和密碼的文件的路徑</span></span><br><span class="line">    <span class="attr">&quot;certificate_file&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;certificate_key_file&quot;</span>: <span class="string">&quot;&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">&quot;http&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;timeout&quot;</span>: <span class="number">20</span>,<span class="comment">//超時指定請求的時間限制（以秒為單位）。對於重試請求，這是單個請求的超時</span></span><br><span class="line">    <span class="attr">&quot;retry_wait_min&quot;</span>: <span class="number">2</span>,<span class="comment">//定義兩次嘗試之間的最短等待時間</span></span><br><span class="line">    <span class="attr">&quot;retry_wait_max&quot;</span>: <span class="number">30</span>,<span class="comment">//定義兩次嘗試之間的最大等待時間（以秒為單位）</span></span><br><span class="line">    <span class="attr">&quot;retry_max&quot;</span>: <span class="number">3</span>,<span class="comment">//定義第一個請求失敗時的最大重試次數。</span></span><br><span class="line">    <span class="attr">&quot;ca_certificates&quot;</span>: [],</span><br><span class="line">    <span class="attr">&quot;certificates&quot;</span>: [],</span><br><span class="line">    <span class="attr">&quot;skip_tls_verify&quot;</span>: <span class="literal">false</span></span><br><span class="line">      <span class="comment">//如果啟用，HTTP客戶端將接受服務器提供的任何TLS證書以及該證書中的任何主機名</span></span><br><span class="line">      <span class="comment">//這種模式下，TLS容易受到中間人攻擊。這僅應用於測試。</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">&quot;kms&quot;</span>: &#123;</span><br><span class="line">      <span class="comment">//用於密鑰管理服務的配置</span></span><br><span class="line">    <span class="attr">&quot;secrets&quot;</span>: &#123;</span><br><span class="line">      <span class="attr">&quot;url&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;master_key_path&quot;</span>: <span class="string">&quot;&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>关于小内存服务器一些补充：</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 还有针对服务器内存少的优化 </span></span><br><span class="line">&quot;password_hashing_algo&quot;: &quot;argon2id&quot;, //虽然安全会使用较多内存进行运算 </span><br><span class="line">&quot;password_hashing_algo&quot;: &quot;bcrypt&quot;,   //内存要求不高，但是可能原来的账户就不能登陆了</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="四、也许你还想要更多，restful-api支持"><a href="#四、也许你还想要更多，restful-api支持" class="headerlink" title="四、也许你还想要更多，restful api支持"></a>四、也许你还想要更多，restful api支持</h3><h4 id="4-1-授权，获取token"><a href="#4-1-授权，获取token" class="headerlink" title="4.1 授权，获取token"></a>4.1 授权，获取token</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// url http://ip:port/api/v2/token</span></span><br><span class="line"><span class="comment">// get请求 其中 wxnnnm 为 sftpgo系统的 用户名:密码  base64加密结果 10分钟有效期</span></span><br><span class="line">&#123;&#x27;Authorization&#x27;:&#x27;Basic wxnnnm&#x27;&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-2-新增用户"><a href="#4-2-新增用户" class="headerlink" title="4.2 新增用户"></a>4.2 新增用户</h4><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// url: http://ip:port/api/v2/users</span></span><br><span class="line"><span class="comment">// post请求 填入参数</span></span><br><span class="line">&#123;<span class="attr">&quot;Authorization&quot;</span>:<span class="string">&quot;Bearer token&quot;</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>差不多到此为止吧，入门到此结束了，多玩就越熟悉</p>
+</blockquote>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 详细的yaml文档</span></span><br><span class="line">https://github.com/drakkan/sftpgo/blob/main/httpd/schema/openapi.yaml</span><br><span class="line"><span class="section"># 线上的api </span></span><br><span class="line">https://sftpgo.stoplight.io/</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="五、数据库结构"><a href="#五、数据库结构" class="headerlink" title="五、数据库结构"></a>五、数据库结构</h3><blockquote>
+<p>简单说说SFTPGo的数据库表结构</p>
+</blockquote>
+<h4 id="5-1涉及的表："><a href="#5-1涉及的表：" class="headerlink" title="5.1涉及的表："></a>5.1涉及的表：</h4><ul>
+<li>用户表、管理员表、文件夹表、文件夹映射表、schema_version表</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">&quot;users&quot;</span> (<span class="string">&quot;id&quot;</span> <span class="built_in">integer</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> PRIMARY <span class="keyword">KEY</span> AUTOINCREMENT, <span class="string">&quot;username&quot;</span> <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">UNIQUE</span>, <span class="string">&quot;password&quot;</span> <span class="built_in">text</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="string">&quot;public_keys&quot;</span> <span class="built_in">text</span> <span class="literal">NULL</span>, <span class="string">&quot;home_dir&quot;</span> <span class="built_in">varchar</span>(<span class="number">512</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>, <span class="string">&quot;uid&quot;</span> <span class="built_in">integer</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>, <span class="string">&quot;gid&quot;</span> <span class="built_in">integer</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>, <span class="string">&quot;max_sessions&quot;</span> <span class="built_in">integer</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="string">&quot;quota_size&quot;</span> <span class="built_in">bigint</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>, <span class="string">&quot;quota_files&quot;</span> <span class="built_in">integer</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>, <span class="string">&quot;permissions&quot;</span> <span class="built_in">text</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>, <span class="string">&quot;used_quota_size&quot;</span> <span class="built_in">bigint</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="string">&quot;used_quota_files&quot;</span> <span class="built_in">integer</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>, <span class="string">&quot;last_quota_update&quot;</span> <span class="built_in">bigint</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>, <span class="string">&quot;upload_bandwidth&quot;</span> <span class="built_in">integer</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>, <span class="string">&quot;download_bandwidth&quot;</span> <span class="built_in">integer</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="string">&quot;expiration_date&quot;</span> <span class="built_in">bigint</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>, <span class="string">&quot;last_login&quot;</span> <span class="built_in">bigint</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>, <span class="string">&quot;status&quot;</span> <span class="built_in">integer</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>, <span class="string">&quot;filters&quot;</span> <span class="built_in">text</span> <span class="literal">NULL</span>, <span class="string">&quot;filesystem&quot;</span> <span class="built_in">text</span> <span class="literal">NULL</span>, <span class="string">&quot;additional_info&quot;</span> <span class="built_in">text</span> <span class="literal">NULL</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">&quot;schema_version&quot;</span> (<span class="string">&quot;id&quot;</span> <span class="built_in">integer</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> PRIMARY <span class="keyword">KEY</span> AUTOINCREMENT, <span class="string">&quot;version&quot;</span> <span class="built_in">integer</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">&quot;folders&quot;</span> (<span class="string">&quot;id&quot;</span> <span class="built_in">integer</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> PRIMARY <span class="keyword">KEY</span> AUTOINCREMENT,</span><br><span class="line"><span class="string">&quot;name&quot;</span> <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">UNIQUE</span>, <span class="string">&quot;path&quot;</span> <span class="built_in">varchar</span>(<span class="number">512</span>) <span class="literal">NULL</span>, <span class="string">&quot;used_quota_size&quot;</span> <span class="built_in">bigint</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="string">&quot;used_quota_files&quot;</span> <span class="built_in">integer</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>, <span class="string">&quot;last_quota_update&quot;</span> <span class="built_in">bigint</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">&quot;folders_mapping&quot;</span> (<span class="string">&quot;id&quot;</span> <span class="built_in">integer</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> PRIMARY <span class="keyword">KEY</span> AUTOINCREMENT, <span class="string">&quot;virtual_path&quot;</span> <span class="built_in">varchar</span>(<span class="number">512</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="string">&quot;quota_size&quot;</span> <span class="built_in">bigint</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>, <span class="string">&quot;quota_files&quot;</span> <span class="built_in">integer</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>, <span class="string">&quot;folder_id&quot;</span> <span class="built_in">integer</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">REFERENCES</span> <span class="string">&quot;folders&quot;</span> (<span class="string">&quot;id&quot;</span>)</span><br><span class="line"><span class="keyword">ON</span> <span class="keyword">DELETE</span> <span class="keyword">CASCADE</span> DEFERRABLE <span class="keyword">INITIALLY</span> <span class="keyword">DEFERRED</span>, <span class="string">&quot;user_id&quot;</span> <span class="built_in">integer</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">REFERENCES</span> <span class="string">&quot;users&quot;</span> (<span class="string">&quot;id&quot;</span>) <span class="keyword">ON</span> <span class="keyword">DELETE</span> <span class="keyword">CASCADE</span> DEFERRABLE <span class="keyword">INITIALLY</span> <span class="keyword">DEFERRED</span>,</span><br><span class="line"><span class="keyword">CONSTRAINT</span> <span class="string">&quot;unique_mapping&quot;</span> <span class="keyword">UNIQUE</span> (<span class="string">&quot;user_id&quot;</span>, <span class="string">&quot;folder_id&quot;</span>));</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">INDEX</span> <span class="string">&quot;folders_mapping_folder_id_idx&quot;</span> <span class="keyword">ON</span> <span class="string">&quot;folders_mapping&quot;</span> (<span class="string">&quot;folder_id&quot;</span>);</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">INDEX</span> <span class="string">&quot;folders_mapping_user_id_idx&quot;</span> <span class="keyword">ON</span> <span class="string">&quot;folders_mapping&quot;</span> (<span class="string">&quot;user_id&quot;</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">&quot;admins&quot;</span> (<span class="string">&quot;id&quot;</span> <span class="built_in">integer</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> PRIMARY <span class="keyword">KEY</span> AUTOINCREMENT, <span class="string">&quot;username&quot;</span> <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">UNIQUE</span>,</span><br><span class="line"><span class="string">&quot;password&quot;</span> <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>, <span class="string">&quot;email&quot;</span> <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="literal">NULL</span>, <span class="string">&quot;status&quot;</span> <span class="built_in">integer</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>, <span class="string">&quot;permissions&quot;</span> <span class="built_in">text</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>, <span class="string">&quot;filters&quot;</span> <span class="built_in">text</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="string">&quot;additional_info&quot;</span> <span class="built_in">text</span> <span class="literal">NULL</span>);</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>佛渡有缘人，施主扫微信<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -193,27 +298,110 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">微服务架构</a>
-        		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2021/05/05/SFTPGo%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E5%85%A5%E9%97%A8/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2021/04/05/cucumber%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E5%85%A5%E9%97%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">今天开始写单元测试cucumber</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -251,8 +439,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
