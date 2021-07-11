@@ -192,34 +192,11 @@
 <p> 除非项目有一些特殊的分布式需求，否则无需自己定制Scheduler。</p>
 </blockquote>
 </li>
-<li><p>pipeline：Pipeline负责抽取结果的处理，包括计算、持久化到文件、数据库等。WebMagic默认提供了“输出到控制台”和“保存到文件”两种结果处理方案</p>
+<li><p>pipeline：Pipeline负责抽取结果的处理，包括计算、持久化到文件、数据库等。WebMagic默认提供了“输出到控制台”和“保存到文件”两种结果处理方案（如果需要持久化到数据库，需重写方法）</p>
 </li>
 </ul>
 <h4 id="2-框架架构图："><a href="#2-框架架构图：" class="headerlink" title="2.框架架构图："></a>2.框架架构图：</h4><p><img src="http://code4craft.github.io/images/posts/webmagic.png" alt="image"></p>
-<h4 id="3-用户数据流转的对象"><a href="#3-用户数据流转的对象" class="headerlink" title="3.用户数据流转的对象"></a>3.用户数据流转的对象</h4><ul>
-<li><p>Request：<code>Request</code>是对URL地址的一层封装，一个Request对应一个URL地址。</p>
-<p>它是PageProcessor与Downloader交互的载体，也是PageProcessor控制Downloader唯一方式。</p>
-</li>
-</ul>
-<blockquote>
-<p>除了URL本身外，它还包含一个Key-Value结构的字段<code>extra</code>。你可以在extra中保存一些特殊的属性，然后在其他地方读取，以完成不同的功能。例如附加上一个页面的一些信息等。</p>
-</blockquote>
-<ul>
-<li><p>Page：<code>Page</code>代表了从Downloader下载到的一个页面——可能是HTML，也可能是JSON或者其他文本格式的内容。</p>
-<blockquote>
-<p>Page是WebMagic抽取过程的核心对象，它提供一些方法可供抽取、结果保存等。在第四章的例子中，我们会详细介绍它的使用。</p>
-</blockquote>
-</li>
-<li><p>ResultItems：<code>ResultItems</code>相当于一个Map，它保存PageProcessor处理的结果，供Pipeline使用。它的API与Map很类似，值得注意的是它有一个字段<code>skip</code>，若设置为true，则不应被Pipeline处理。</p>
-</li>
-</ul>
-<h4 id="4-控制爬虫的运转引擎：spider"><a href="#4-控制爬虫的运转引擎：spider" class="headerlink" title="4.控制爬虫的运转引擎：spider"></a>4.控制爬虫的运转引擎：spider</h4><blockquote>
-<p>​       Spider是WebMagic内部流程的核心。Downloader、PageProcessor、Scheduler、Pipeline都是Spider的一个属性，这些属性是可以自由设置的，通过设置这个属性可以实现不同的功能。Spider也是WebMagic操作的入口，它封装了爬虫的创建、启动、停止、多线程等功能。</p>
-</blockquote>
-<h3 id="二、入门程序"><a href="#二、入门程序" class="headerlink" title="二、入门程序"></a>二、入门程序</h3><h4 id="1-引入依赖"><a href="#1-引入依赖" class="headerlink" title="1.引入依赖"></a>1.引入依赖</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--maven依赖--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>us.codecraft<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>webmagic-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.7.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>us.codecraft<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>webmagic-extension<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.7.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.slf4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>slf4j-log4j12<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="2-入门代码"><a href="#2-入门代码" class="headerlink" title="2.入门代码"></a>2.入门代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.sky.spider.utils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.jsoup.nodes.Document;</span><br><span class="line"><span class="keyword">import</span> org.jsoup.nodes.Element;</span><br><span class="line"><span class="keyword">import</span> org.jsoup.select.Elements;</span><br><span class="line"><span class="keyword">import</span> org.springframework.util.ObjectUtils;</span><br><span class="line"><span class="keyword">import</span> us.codecraft.webmagic.Page;</span><br><span class="line"><span class="keyword">import</span> us.codecraft.webmagic.Site;</span><br><span class="line"><span class="keyword">import</span> us.codecraft.webmagic.Spider;</span><br><span class="line"><span class="keyword">import</span> us.codecraft.webmagic.pipeline.JsonFilePipeline;</span><br><span class="line"><span class="keyword">import</span> us.codecraft.webmagic.processor.PageProcessor;</span><br><span class="line"><span class="keyword">import</span> us.codecraft.webmagic.processor.example.GithubRepoPageProcessor;</span><br><span class="line"><span class="keyword">import</span> us.codecraft.webmagic.selector.Html;</span><br><span class="line"><span class="keyword">import</span> us.codecraft.webmagic.selector.Selectable;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.UUID;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> mrs.sun</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@title</span>: webmagicParseUtil 入门程序</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: Webmagic爬虫框架</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2021/6/2120:23</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebmagicParseUtil</span> <span class="keyword">implements</span> <span class="title">PageProcessor</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//创建Spider引擎</span></span><br><span class="line">        Spider.create(</span><br><span class="line">                <span class="keyword">new</span> WebmagicParseUtil())</span><br><span class="line">                .addUrl(<span class="string">&quot;https://search.jd.com/Search?keyword=%E9%BB%91%E4%B8%9D&amp;enc=utf-8&amp;wq=%E9%BB%91%E4%B8%9D&amp;pvid=f45357d3c8794a8cac5219f822aaca09&quot;</span>)</span><br><span class="line">                .run();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">process</span><span class="params">(Page page)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//css 提取器爬去数据</span></span><br><span class="line">        Selectable selectable = page.getHtml().css(<span class="string">&quot;img&quot;</span>, <span class="string">&quot;source-data-lazy-img&quot;</span>);</span><br><span class="line">        List&lt;String&gt; list = selectable.all();</span><br><span class="line">        <span class="keyword">for</span> (String content : list) &#123;</span><br><span class="line">            String uuid = UUID.randomUUID().toString();</span><br><span class="line">            <span class="keyword">if</span>(!<span class="string">&quot;&quot;</span>.equals(content))&#123;</span><br><span class="line">                page.putField(uuid,content);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//xpath爬去数据</span></span><br><span class="line">        Selectable xpath = page.getHtml().xpath(<span class="string">&quot;//img/@data-lazy-img&quot;</span>);</span><br><span class="line">        List&lt;String&gt; all = xpath.all();</span><br><span class="line">        List&lt;String&gt; listNew = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="comment">//数据去重</span></span><br><span class="line">        <span class="keyword">for</span> (String content : all) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!listNew.contains(content)) &#123;</span><br><span class="line">                listNew.add(content);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        listNew.forEach(content-&gt;&#123;</span><br><span class="line">            String uuid = UUID.randomUUID().toString();</span><br><span class="line">            <span class="comment">//放入数据</span></span><br><span class="line">            page.putField(uuid,content);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">        初始化Site对象,site就是站点的配置</span></span><br><span class="line"><span class="comment">        可以设置抓取频率，次数...</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Site <span class="title">getSite</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Site.me();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
+        
       
 
       
@@ -743,6 +720,83 @@
 
 
   
+    <article id="post-数据库多表查询" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/">数据库多表查询</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/" class="archive-article-date">
+     
+  	<time datetime="2017-09-06T08:05:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">* 多表查询： select * from 表名1，表名2；</span><br><span class="line">  1.笛卡尔积：多表查询时，会取两个集合的所有组成情况（即表1和表2产生错误的查询结果）</span><br><span class="line">   * 完成多表查询，需要消除无用的数据</span><br><span class="line">  2.多表查询的分类：</span><br><span class="line">   * 内连接查询</span><br><span class="line">   * 外连接查询</span><br><span class="line">   * 子查询</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="多表查询-内连接"><a href="#多表查询-内连接" class="headerlink" title="多表查询-内连接"></a>多表查询-内连接</h4>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-数据库事务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -805,83 +859,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%8B%E5%8A%A1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-数据库多表查询" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/">数据库多表查询</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/" class="archive-article-date">
-     
-  	<time datetime="2017-09-06T08:05:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">* 多表查询： select * from 表名1，表名2；</span><br><span class="line">  1.笛卡尔积：多表查询时，会取两个集合的所有组成情况（即表1和表2产生错误的查询结果）</span><br><span class="line">   * 完成多表查询，需要消除无用的数据</span><br><span class="line">  2.多表查询的分类：</span><br><span class="line">   * 内连接查询</span><br><span class="line">   * 外连接查询</span><br><span class="line">   * 子查询</span><br></pre></td></tr></table></figure>
-<hr>
-<h4 id="多表查询-内连接"><a href="#多表查询-内连接" class="headerlink" title="多表查询-内连接"></a>多表查询-内连接</h4>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/">展开全文 >></a>
         </p>
       
 
@@ -1103,6 +1080,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">mysql相关概念</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
@@ -1112,10 +1093,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">mysql相关概念</a>
               </li>
              
               <li class="article-tag-list-item">
