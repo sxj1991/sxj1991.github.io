@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: cucumber单元测试 | 睡着的羊</title>
+  <title>今天开始写java爬虫 | 睡着的羊</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="睡着的羊">
-<meta property="og:url" content="http://yoursite.com/tags/cucumber%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/index.html">
+  <meta name="description" content="JavaWebMagic爬虫框架 简介：webmagick框架是一个java实现的爬虫框架，底层由httpclient和jsoup实现。 由于作者很久未继续更新，学习入门可以，实际真想爬点什么…你懂的，很难爬。  一、基本概念1.组件构成： downloader：Downloader负责从互联网上下载页面，以便后续处理。WebMagic默认使用了Apache HttpClient作为下载工具。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="今天开始写java爬虫">
+<meta property="og:url" content="http://yoursite.com/2021/07/05/JavaWebMagic%20%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6/index.html">
 <meta property="og:site_name" content="睡着的羊">
+<meta property="og:description" content="JavaWebMagic爬虫框架 简介：webmagick框架是一个java实现的爬虫框架，底层由httpclient和jsoup实现。 由于作者很久未继续更新，学习入门可以，实际真想爬点什么…你懂的，很难爬。  一、基本概念1.组件构成： downloader：Downloader负责从互联网上下载页面，以便后续处理。WebMagic默认使用了Apache HttpClient作为下载工具。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://code4craft.github.io/images/posts/webmagic.png">
+<meta property="article:published_time" content="2021-07-05T05:11:16.000Z">
+<meta property="article:modified_time" content="2021-07-11T08:08:53.363Z">
 <meta property="article:author" content="鄙人，孙肥肥">
+<meta property="article:tag" content="爬虫">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://code4craft.github.io/images/posts/webmagic.png">
   
     <link rel="alternative" href="/atom.xml" title="睡着的羊" type="application/atom+xml">
   
@@ -155,61 +162,218 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-JavaWebMagic 爬虫框架" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/04/05/cucumber%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E5%85%A5%E9%97%A8/" class="archive-article-date">
-     
-  	<time datetime="2021-04-05T01:11:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-05</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/04/05/cucumber%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E5%85%A5%E9%97%A8/">今天开始写单元测试cucumber</a>
+    <h1 class="article-title" itemprop="name">
+      今天开始写java爬虫
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2021/07/05/JavaWebMagic%20%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6/" class="archive-article-date">
+    
+        <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+     
+  	<time datetime="2021-07-05T05:11:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="JavaWebMagic爬虫框架"><a href="#JavaWebMagic爬虫框架" class="headerlink" title="JavaWebMagic爬虫框架"></a>JavaWebMagic爬虫框架</h2><blockquote>
+<p>简介：webmagick框架是一个java实现的爬虫框架，底层由httpclient和jsoup实现。</p>
+<p>由于作者很久未继续更新，学习入门可以，实际真想爬点什么…你懂的，很难爬。</p>
+</blockquote>
+<h3 id="一、基本概念"><a href="#一、基本概念" class="headerlink" title="一、基本概念"></a>一、基本概念</h3><h4 id="1-组件构成："><a href="#1-组件构成：" class="headerlink" title="1.组件构成："></a>1.组件构成：</h4><ul>
+<li><p>downloader：Downloader负责从互联网上下载页面，以便后续处理。WebMagic默认使用了<a target="_blank" rel="noopener" href="http://hc.apache.org/index.html">Apache HttpClient</a>作为下载工具。</p>
+</li>
+<li><p>pageprocessor： PageProcessor负责解析页面，抽取有用信息，以及发现新的链接。WebMagic使用<a target="_blank" rel="noopener" href="http://jsoup.org/">Jsoup</a>作为HTML解析工具，并基于其开发了解析XPath的工具<a target="_blank" rel="noopener" href="https://github.com/code4craft/xsoup">Xsoup</a>。（用户需定制逻辑）</p>
+</li>
+<li><p>scheculer：Scheduler负责管理待抓取的URL，以及一些去重的工作。WebMagic默认提供了JDK的内存队列来管理URL，并用集合来进行去重。也支持使用Redis进行分布式管理。</p>
+<blockquote>
+<p> 除非项目有一些特殊的分布式需求，否则无需自己定制Scheduler。</p>
+</blockquote>
+</li>
+<li><p>pipeline：Pipeline负责抽取结果的处理，包括计算、持久化到文件、数据库等。WebMagic默认提供了“输出到控制台”和“保存到文件”两种结果处理方案</p>
+</li>
+</ul>
+<h4 id="2-框架架构图："><a href="#2-框架架构图：" class="headerlink" title="2.框架架构图："></a>2.框架架构图：</h4><p><img src="http://code4craft.github.io/images/posts/webmagic.png" alt="image"></p>
+<h4 id="3-用户数据流转的对象"><a href="#3-用户数据流转的对象" class="headerlink" title="3.用户数据流转的对象"></a>3.用户数据流转的对象</h4><ul>
+<li><p>Request：<code>Request</code>是对URL地址的一层封装，一个Request对应一个URL地址。</p>
+<p>它是PageProcessor与Downloader交互的载体，也是PageProcessor控制Downloader唯一方式。</p>
+</li>
+</ul>
+<blockquote>
+<p>除了URL本身外，它还包含一个Key-Value结构的字段<code>extra</code>。你可以在extra中保存一些特殊的属性，然后在其他地方读取，以完成不同的功能。例如附加上一个页面的一些信息等。</p>
+</blockquote>
+<ul>
+<li><p>Page：<code>Page</code>代表了从Downloader下载到的一个页面——可能是HTML，也可能是JSON或者其他文本格式的内容。</p>
+<blockquote>
+<p>Page是WebMagic抽取过程的核心对象，它提供一些方法可供抽取、结果保存等。在第四章的例子中，我们会详细介绍它的使用。</p>
+</blockquote>
+</li>
+<li><p>ResultItems：<code>ResultItems</code>相当于一个Map，它保存PageProcessor处理的结果，供Pipeline使用。它的API与Map很类似，值得注意的是它有一个字段<code>skip</code>，若设置为true，则不应被Pipeline处理。</p>
+</li>
+</ul>
+<h4 id="4-控制爬虫的运转引擎：spider"><a href="#4-控制爬虫的运转引擎：spider" class="headerlink" title="4.控制爬虫的运转引擎：spider"></a>4.控制爬虫的运转引擎：spider</h4><blockquote>
+<p>​       Spider是WebMagic内部流程的核心。Downloader、PageProcessor、Scheduler、Pipeline都是Spider的一个属性，这些属性是可以自由设置的，通过设置这个属性可以实现不同的功能。Spider也是WebMagic操作的入口，它封装了爬虫的创建、启动、停止、多线程等功能。</p>
+</blockquote>
+<h3 id="二、入门程序"><a href="#二、入门程序" class="headerlink" title="二、入门程序"></a>二、入门程序</h3><h4 id="1-引入依赖"><a href="#1-引入依赖" class="headerlink" title="1.引入依赖"></a>1.引入依赖</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--maven依赖--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>us.codecraft<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>webmagic-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.7.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>us.codecraft<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>webmagic-extension<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.7.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.slf4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>slf4j-log4j12<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-入门代码"><a href="#2-入门代码" class="headerlink" title="2.入门代码"></a>2.入门代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.sky.spider.utils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.jsoup.nodes.Document;</span><br><span class="line"><span class="keyword">import</span> org.jsoup.nodes.Element;</span><br><span class="line"><span class="keyword">import</span> org.jsoup.select.Elements;</span><br><span class="line"><span class="keyword">import</span> org.springframework.util.ObjectUtils;</span><br><span class="line"><span class="keyword">import</span> us.codecraft.webmagic.Page;</span><br><span class="line"><span class="keyword">import</span> us.codecraft.webmagic.Site;</span><br><span class="line"><span class="keyword">import</span> us.codecraft.webmagic.Spider;</span><br><span class="line"><span class="keyword">import</span> us.codecraft.webmagic.pipeline.JsonFilePipeline;</span><br><span class="line"><span class="keyword">import</span> us.codecraft.webmagic.processor.PageProcessor;</span><br><span class="line"><span class="keyword">import</span> us.codecraft.webmagic.processor.example.GithubRepoPageProcessor;</span><br><span class="line"><span class="keyword">import</span> us.codecraft.webmagic.selector.Html;</span><br><span class="line"><span class="keyword">import</span> us.codecraft.webmagic.selector.Selectable;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.UUID;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> mrs.sun</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@title</span>: webmagicParseUtil 入门程序</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: Webmagic爬虫框架</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2021/6/2120:23</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebmagicParseUtil</span> <span class="keyword">implements</span> <span class="title">PageProcessor</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//创建Spider引擎</span></span><br><span class="line">        Spider.create(</span><br><span class="line">                <span class="keyword">new</span> WebmagicParseUtil())</span><br><span class="line">                .addUrl(<span class="string">&quot;https://search.jd.com/Search?keyword=%E9%BB%91%E4%B8%9D&amp;enc=utf-8&amp;wq=%E9%BB%91%E4%B8%9D&amp;pvid=f45357d3c8794a8cac5219f822aaca09&quot;</span>)</span><br><span class="line">                .run();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">process</span><span class="params">(Page page)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//css 提取器爬去数据</span></span><br><span class="line">        Selectable selectable = page.getHtml().css(<span class="string">&quot;img&quot;</span>, <span class="string">&quot;source-data-lazy-img&quot;</span>);</span><br><span class="line">        List&lt;String&gt; list = selectable.all();</span><br><span class="line">        <span class="keyword">for</span> (String content : list) &#123;</span><br><span class="line">            String uuid = UUID.randomUUID().toString();</span><br><span class="line">            <span class="keyword">if</span>(!<span class="string">&quot;&quot;</span>.equals(content))&#123;</span><br><span class="line">                page.putField(uuid,content);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//xpath爬去数据</span></span><br><span class="line">        Selectable xpath = page.getHtml().xpath(<span class="string">&quot;//img/@data-lazy-img&quot;</span>);</span><br><span class="line">        List&lt;String&gt; all = xpath.all();</span><br><span class="line">        List&lt;String&gt; listNew = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="comment">//数据去重</span></span><br><span class="line">        <span class="keyword">for</span> (String content : all) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!listNew.contains(content)) &#123;</span><br><span class="line">                listNew.add(content);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        listNew.forEach(content-&gt;&#123;</span><br><span class="line">            String uuid = UUID.randomUUID().toString();</span><br><span class="line">            <span class="comment">//放入数据</span></span><br><span class="line">            page.putField(uuid,content);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">        初始化Site对象,site就是站点的配置</span></span><br><span class="line"><span class="comment">        可以设置抓取频率，次数...</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Site <span class="title">getSite</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Site.me();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>佛渡有缘人，施主扫微信<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">cucumber单元测试</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2021/07/05/JavaWebMagic%20%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2021/05/05/SFTPGo%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E5%85%A5%E9%97%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SFTPGo 服务器部署</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -247,9 +411,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
