@@ -6,19 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>数据库设计（范式，多表关系） | 睡着的羊</title>
+  <title>Archives: 2021/10 | 睡着的羊</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="数据库设计多表之间的关系：  1.一对一（了解）：实际开发使用情况较少 例子：人和身份证  2.一对多（多对一）  例子：员工和部门的关系  3.多对多         例子： 学生和课程（可以多项选择）">
-<meta property="og:type" content="article">
-<meta property="og:title" content="数据库设计（范式，多表关系）">
-<meta property="og:url" content="http://yoursite.com/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1(%E5%A4%9A%E8%A1%A8%E3%80%81%E8%8C%83%E5%BC%8F)/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="睡着的羊">
+<meta property="og:url" content="http://yoursite.com/archives/2021/10/index.html">
 <meta property="og:site_name" content="睡着的羊">
-<meta property="og:description" content="数据库设计多表之间的关系：  1.一对一（了解）：实际开发使用情况较少 例子：人和身份证  2.一对多（多对一）  例子：员工和部门的关系  3.多对多         例子： 学生和课程（可以多项选择）">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2017-09-06T08:05:15.000Z">
-<meta property="article:modified_time" content="2020-11-29T12:20:06.517Z">
 <meta property="article:author" content="鄙人，孙肥肥">
-<meta property="article:tag" content="mysql">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="睡着的羊" type="application/atom+xml">
@@ -160,234 +155,61 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-数据库设计(多表、范式)" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      数据库设计（范式，多表关系）
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2021" class="archive-year">2021</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2021/10/16/Mycat%20%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%BA%94%E7%94%A8/" class="archive-article-date">
+     
+  	<time datetime="2021-10-16T09:11:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-16</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2021/10/16/Mycat%20%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%BA%94%E7%94%A8/">Mycat基础入门</a>
     </h1>
   
 
-        
-        <a href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1(%E5%A4%9A%E8%A1%A8%E3%80%81%E8%8C%83%E5%BC%8F)/" class="archive-article-date">
-    
-        <!-- 不蒜子统计 -->
-        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
-              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
-        </span>
-     
-  	<time datetime="2017-09-06T08:05:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><p>数据库设计多表之间的关系：<br>  1.一对一（了解）：实际开发使用情况较少 例子：人和身份证<br>  2.一对多（多对一）  例子：员工和部门的关系<br>  3.多对多         例子： 学生和课程（可以多项选择）</p>
-  <a id="more"></a>
-
-</li>
-</ul>
-<hr>
-<h3 id="多表关系-一对多的关系实现"><a href="#多表关系-一对多的关系实现" class="headerlink" title="多表关系(一对多的关系实现)"></a>多表关系(一对多的关系实现)</h3><ul>
-<li>实现方式：再多的一方建立外键，指向一的一方的主键</li>
-</ul>
-<hr>
-<h3 id="多表关系-多对多的关系实现"><a href="#多表关系-多对多的关系实现" class="headerlink" title="多表关系(多对多的关系实现)"></a>多表关系(多对多的关系实现)</h3><ul>
-<li>实现方式：多对多的关系实现需要借助第三张中间表。中间表至少包含两个字段，这两个字段作为第三张表的外键，分别指向两张表的主键</li>
-</ul>
-<hr>
-<h3 id="多表关系-一对一的关系实现"><a href="#多表关系-一对一的关系实现" class="headerlink" title="多表关系(一对一的关系实现)"></a>多表关系(一对一的关系实现)</h3><ul>
-<li>实现方式：一对一关系实现，可以任意一方添加唯一外键 指向另一方的主键（实际运用不如整合在一张表上）</li>
-</ul>
-<hr>
-<h3 id="多表关系-案例演练：旅游网用户选择旅游线路数据库设计"><a href="#多表关系-案例演练：旅游网用户选择旅游线路数据库设计" class="headerlink" title="多表关系 案例演练：旅游网用户选择旅游线路数据库设计"></a>多表关系 案例演练：旅游网用户选择旅游线路数据库设计</h3><hr>
-<h3 id="数据库设计的范式"><a href="#数据库设计的范式" class="headerlink" title="数据库设计的范式"></a>数据库设计的范式</h3><ul>
-<li><p>概念：设计数据库时，需要遵循的一些规范。<font color='#00dd00'>要遵循后边的范式要求，必须遵循前边的所有范式要求。</font></p>
-<p>1.数据库规范化，又称正规化、标准化，是数据库设计的一系列原理和技术，<font color='#00dd00'>以减少数据库中数据冗余，增进数据的一致性。</font>1970年代初定义了第一范式、第二范式和第三范式的概念，除外还包括针对多值依赖的第四范式，连接依赖的第五范式、DK范式和第六范式。</p>
-</li>
-</ul>
-<p>ps：现在数据库设计最多满足3NF</p>
-<hr>
-<h3 id="数据库设计三大范式"><a href="#数据库设计三大范式" class="headerlink" title="数据库设计三大范式"></a>数据库设计三大范式</h3><ul>
-<li>分类：<br> 1.第一范式（1NF）：强调的是列的原子性，<font color='#00dd00'>即列不能够再分成其他几列。即据库表中的字段都是单一属性的，不可再分。</font><br> 2.第二范式（2NF）：首先是 1NF，另外包含两部分内容，一是表必须有一个主键；二是没有包含在主键中的列必须完全依赖于主键，而不能只依赖于主键的一部分。<br><font color='#00dd00'>第二范式目的就是消除部分函数依赖的影响</font><br> 3.第三范式（3NF）：首先是 2NF，另外非主键列必须直接依赖于主键，<font color='#00dd00'>不能存在传递依赖。</font>即不能存在：非主键列 A 依赖于非主键列 B，非主键列 B 依赖于主键的情况。<ul>
-<li>几个概念：<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">1.函数依赖： 如果通过A属性（属性组）的值，可以确定唯一B属性的值。则B依赖于A</span><br><span class="line"><span class="code">     比如：姓名 依赖 学号   （分数） 依赖 （学号，课程名称）属性组</span></span><br><span class="line"><span class="code">2.完全函数依赖：如果A是一个属性组，则B值的确定必须依赖于A属性组所有的属性值</span></span><br><span class="line"><span class="code">     比如：（分数） 依赖 （学号，课程名称）属性组</span></span><br><span class="line"><span class="code">3.部分函数依赖：如果A是一个属性组，则B值的确定只依赖于A属性组其中部分属性值</span></span><br><span class="line"><span class="code">     比如：（姓名） 依赖 （学号，课程名称）属性组里面《学号属性》</span></span><br><span class="line"><span class="code">4.传递函数依赖：如果通过A属性（属性组）的值，可以确定唯一B属性的值；通过B属性的值在确认唯一C属性的值；则C传递依赖于A</span></span><br><span class="line"><span class="code">     比如：系名 依赖 学号； 系主任 依赖 系名 （系主任 传递依赖 学号）</span></span><br><span class="line"><span class="code">5.码：如果在一张表中，一个属性或属性组，被其他所有属性所完全依赖，则称这个属性（属性组）为该表的码</span></span><br><span class="line"><span class="code">     比如：（学号，课程名称）学生信息表 这个属性组就是“码”</span></span><br><span class="line"><span class="code">     主属性：码属性组中的所有属性</span></span><br><span class="line"><span class="code">     非主属性：除码属性组的属性</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h3 id="数据库的备份和还原"><a href="#数据库的备份和还原" class="headerlink" title="数据库的备份和还原"></a>数据库的备份和还原</h3><ul>
-<li><p>命令行：</p>
-<ol>
-<li>语法： <ul>
-<li>备份 ：mysqldump -u用户名 -p密码  数据库名 &gt;保存的路径</li>
-<li>还原：<br> 1.登录数据库<br> 2.创建数据库<br> 3.使用数据库<br> 4.执行文件。source 文件路径</li>
-</ul>
-</li>
-</ol>
-</li>
-<li><p>图形化工具：<br> 1.备份：使用备份功能<br> 2.还原：还原功能 –&gt; 执行sql脚本</p>
-</li>
-</ul>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>佛渡有缘人，施主扫微信<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/weixin.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">mysql相关概念</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1(%E5%A4%9A%E8%A1%A8%E3%80%81%E8%8C%83%E5%BC%8F)/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          数据库多表查询
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/09/03/SQL%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">SQL基本概念</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -425,8 +247,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
