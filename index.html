@@ -157,6 +157,87 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-golang邮箱发送验证简单实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/10/20/golang%E9%82%AE%E7%AE%B1%E5%8F%91%E9%80%81%E9%AA%8C%E8%AF%81%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/">go邮箱发送验证简单实现</a>
+    </h1>
+  
+
+        
+        <a href="/2021/10/20/golang%E9%82%AE%E7%AE%B1%E5%8F%91%E9%80%81%E9%AA%8C%E8%AF%81%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/" class="archive-article-date">
+     
+  	<time datetime="2021-10-20T08:05:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>此功能依赖于第三方库：</p>
+<ol>
+<li>github.com/afocus/captcha 验证码工具库</li>
+<li>github.com/jordan-wright/email 邮件工具库</li>
+</ol>
+</blockquote>
+<h3 id="1-生成验证码功能实现"><a href="#1-生成验证码功能实现" class="headerlink" title="1. 生成验证码功能实现"></a>1. 生成验证码功能实现</h3><blockquote>
+<p>简单说两句，虽然没有自己实现那么随心所欲，但一般的验证码需求也足够用啦。</p>
+<p>适合最简单的验证码场景。（目前常用的点选样式和拼图拖拽暂无法依靠此库实现）</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> WorkedId = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//获取验证码生成对象</span></span><br><span class="line"><span class="keyword">var</span> <span class="built_in">cap</span> = captcha.New()</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> CaptchaInfor <span class="keyword">struct</span> &#123;</span><br><span class="line">	ImgID <span class="keyword">string</span></span><br><span class="line">	Img <span class="keyword">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">CreateCaptcha</span><span class="params">()</span><span class="title">CaptchaInfor</span></span>&#123;</span><br><span class="line">	<span class="comment">//加载字体（预先下载字体并加载）</span></span><br><span class="line">	<span class="keyword">if</span> err := <span class="built_in">cap</span>.SetFont(share.CONF.Font); err != <span class="literal">nil</span> &#123;</span><br><span class="line">		logrus.Error(err.Error())</span><br><span class="line">		<span class="keyword">return</span> CaptchaInfor&#123;&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//设置验证码</span></span><br><span class="line">	<span class="built_in">cap</span>.SetSize(<span class="number">128</span>, <span class="number">64</span>)</span><br><span class="line">	<span class="built_in">cap</span>.SetDisturbance(captcha.MEDIUM)</span><br><span class="line">	<span class="built_in">cap</span>.SetFrontColor(color.RGBA&#123;<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>&#125;)</span><br><span class="line">	<span class="built_in">cap</span>.SetBkgColor(color.RGBA&#123;<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>&#125;, color.RGBA&#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>, <span class="number">255</span>&#125;, color.RGBA&#123;<span class="number">0</span>, <span class="number">153</span>, <span class="number">0</span>, <span class="number">255</span>&#125;)</span><br><span class="line">	img, _ := <span class="built_in">cap</span>.Create(<span class="number">6</span>, captcha.ALL)</span><br><span class="line">	emptyBuff := bytes.NewBuffer(<span class="literal">nil</span>)</span><br><span class="line">	_ = png.Encode(emptyBuff, img)</span><br><span class="line">	<span class="comment">//生产图片id</span></span><br><span class="line">	worker, _ := NewWorker(WorkedId)</span><br><span class="line">	<span class="comment">//base64加密 传输图片</span></span><br><span class="line">	<span class="keyword">return</span> CaptchaInfor&#123;ImgID: strconv.FormatInt(worker.GetId(), <span class="number">10</span>),Img: <span class="string">&quot;data:image/png;base64,&quot;</span> + base64.StdEncoding.EncodeToString(emptyBuff.Bytes())&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-邮件发送功能实现"><a href="#2-邮件发送功能实现" class="headerlink" title="2. 邮件发送功能实现"></a>2. 邮件发送功能实现</h3><blockquote>
+<p>简单实现邮件发送功能</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">   host := <span class="string">&quot;host&quot;</span></span><br><span class="line">auth := smtp.PlainAuth(<span class="string">&quot;&quot;</span>, <span class="string">&quot;username&quot;</span>, <span class="string">&quot;password&quot;</span>, host)</span><br><span class="line">em := email.NewEmail()</span><br><span class="line"><span class="comment">// 设置 sender 发送方 的邮箱 ， 此处可以填写自己的邮箱</span></span><br><span class="line">em.From = <span class="string">&quot;发送方&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置 receiver 接收方 的邮箱  此处也可以填写自己的邮箱， 就是自己发邮件给自己</span></span><br><span class="line">em.To = []<span class="keyword">string</span>&#123;<span class="string">&quot;接收方&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置主题</span></span><br><span class="line">em.Subject = <span class="string">&quot;邮件题目&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 简单设置文件发送的内容，暂时设置成纯文本</span></span><br><span class="line">captcha := tool.CreateCaptcha()</span><br><span class="line">em.HTML = []<span class="keyword">byte</span>(<span class="string">&quot;&lt;h2&gt;golang 邮件测试&lt;/h2&gt;&quot;</span> +</span><br><span class="line">	<span class="string">&quot;&lt;p&gt;验证码信息:&lt;/p&gt;&quot;</span> +</span><br><span class="line">	<span class="string">&quot;&lt;img src=&#x27;&quot;</span> + captcha.Img + <span class="string">&quot;&#x27;/&gt;&quot;</span>)</span><br><span class="line"><span class="comment">//设置服务器相关的配置</span></span><br><span class="line">err := em.SendWithTLS(<span class="string">&quot;邮件服务器域名:465&quot;</span>, auth, &amp;tls.Config&#123;ServerName: host, InsecureSkipVerify: <span class="literal">true</span>&#125;)</span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">	log.Fatal(err.Error())</span><br><span class="line">&#125;</span><br><span class="line">log.Println(<span class="string">&quot;send successfully ... &quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/10/20/golang%E9%82%AE%E7%AE%B1%E5%8F%91%E9%80%81%E9%AA%8C%E8%AF%81%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Mycat 数据库中间件应用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -892,83 +973,6 @@
 
 
   
-    <article id="post-数据库多表查询" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/">数据库多表查询</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/" class="archive-article-date">
-     
-  	<time datetime="2017-09-06T08:05:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">* 多表查询： select * from 表名1，表名2；</span><br><span class="line">  1.笛卡尔积：多表查询时，会取两个集合的所有组成情况（即表1和表2产生错误的查询结果）</span><br><span class="line">   * 完成多表查询，需要消除无用的数据</span><br><span class="line">  2.多表查询的分类：</span><br><span class="line">   * 内连接查询</span><br><span class="line">   * 外连接查询</span><br><span class="line">   * 子查询</span><br></pre></td></tr></table></figure>
-<hr>
-<h4 id="多表查询-内连接"><a href="#多表查询-内连接" class="headerlink" title="多表查询-内连接"></a>多表查询-内连接</h4>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
@@ -1089,11 +1093,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color5">mysql相关概念</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">mysql相关概念</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
