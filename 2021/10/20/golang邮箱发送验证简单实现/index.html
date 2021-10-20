@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>go邮箱发送验证简单实现 | 睡着的羊</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="此功能依赖于第三方库：  github.com&#x2F;afocus&#x2F;captcha 验证码工具库 github.com&#x2F;jordan-wright&#x2F;email 邮件工具库   1. 生成验证码功能实现 简单说两句，虽然没有自己实现那么随心所欲，但一般的验证码需求也足够用啦。 适合最简单的验证码场景。（目前常用的点选样式和拼图拖拽暂无法依靠此库实现）  1234567891011121314151617">
+  <meta name="description" content="此功能依赖于第三方库：  github.com&#x2F;afocus&#x2F;captcha 验证码工具库 github.com&#x2F;jordan-wright&#x2F;email 邮件工具库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="go邮箱发送验证简单实现">
 <meta property="og:url" content="http://yoursite.com/2021/10/20/golang%E9%82%AE%E7%AE%B1%E5%8F%91%E9%80%81%E9%AA%8C%E8%AF%81%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/index.html">
 <meta property="og:site_name" content="睡着的羊">
-<meta property="og:description" content="此功能依赖于第三方库：  github.com&#x2F;afocus&#x2F;captcha 验证码工具库 github.com&#x2F;jordan-wright&#x2F;email 邮件工具库   1. 生成验证码功能实现 简单说两句，虽然没有自己实现那么随心所欲，但一般的验证码需求也足够用啦。 适合最简单的验证码场景。（目前常用的点选样式和拼图拖拽暂无法依靠此库实现）  1234567891011121314151617">
+<meta property="og:description" content="此功能依赖于第三方库：  github.com&#x2F;afocus&#x2F;captcha 验证码工具库 github.com&#x2F;jordan-wright&#x2F;email 邮件工具库">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-10-20T08:05:31.000Z">
-<meta property="article:modified_time" content="2021-10-20T08:05:22.000Z">
+<meta property="article:modified_time" content="2021-10-20T08:14:08.000Z">
 <meta property="article:author" content="鄙人，孙肥肥">
 <meta name="twitter:card" content="summary">
   
@@ -192,6 +192,8 @@
 <li>github.com/jordan-wright/email 邮件工具库</li>
 </ol>
 </blockquote>
+<a id="more"></a>
+
 <h3 id="1-生成验证码功能实现"><a href="#1-生成验证码功能实现" class="headerlink" title="1. 生成验证码功能实现"></a>1. 生成验证码功能实现</h3><blockquote>
 <p>简单说两句，虽然没有自己实现那么随心所欲，但一般的验证码需求也足够用啦。</p>
 <p>适合最简单的验证码场景。（目前常用的点选样式和拼图拖拽暂无法依靠此库实现）</p>
