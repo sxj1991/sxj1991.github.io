@@ -6,17 +6,13 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>go邮箱发送验证简单实现 | 睡着的羊</title>
+  <title>Tag: spring | 睡着的羊</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="此功能依赖于第三方库：  github.com&#x2F;afocus&#x2F;captcha 验证码工具库 github.com&#x2F;jordan-wright&#x2F;email 邮件工具库">
-<meta property="og:type" content="article">
-<meta property="og:title" content="go邮箱发送验证简单实现">
-<meta property="og:url" content="http://yoursite.com/2021/10/20/golang%E9%82%AE%E7%AE%B1%E5%8F%91%E9%80%81%E9%AA%8C%E8%AF%81%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="睡着的羊">
+<meta property="og:url" content="http://yoursite.com/tags/spring/index.html">
 <meta property="og:site_name" content="睡着的羊">
-<meta property="og:description" content="此功能依赖于第三方库：  github.com&#x2F;afocus&#x2F;captcha 验证码工具库 github.com&#x2F;jordan-wright&#x2F;email 邮件工具库">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-10-20T08:05:31.000Z">
-<meta property="article:modified_time" content="2021-10-20T08:14:08.000Z">
 <meta property="article:author" content="鄙人，孙肥肥">
 <meta name="twitter:card" content="summary">
   
@@ -159,186 +155,61 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-golang邮箱发送验证简单实现" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      go邮箱发送验证简单实现
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/11/22/Spring/" class="archive-article-date">
+     
+  	<time datetime="2019-11-22T13:02:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/11/22/Spring/">Spring从入门到入土</a>
     </h1>
   
 
-        
-        <a href="/2021/10/20/golang%E9%82%AE%E7%AE%B1%E5%8F%91%E9%80%81%E9%AA%8C%E8%AF%81%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/" class="archive-article-date">
-    
-        <!-- 不蒜子统计 -->
-        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
-              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
-        </span>
-     
-  	<time datetime="2021-10-20T08:05:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>此功能依赖于第三方库：</p>
-<ol>
-<li>github.com/afocus/captcha 验证码工具库</li>
-<li>github.com/jordan-wright/email 邮件工具库</li>
-</ol>
-</blockquote>
-<a id="more"></a>
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
-<h3 id="1-生成验证码功能实现"><a href="#1-生成验证码功能实现" class="headerlink" title="1. 生成验证码功能实现"></a>1. 生成验证码功能实现</h3><blockquote>
-<p>简单说两句，虽然没有自己实现那么随心所欲，但一般的验证码需求也足够用啦。</p>
-<p>适合最简单的验证码场景。（目前常用的点选样式和拼图拖拽暂无法依靠此库实现）</p>
-</blockquote>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> WorkedId = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//获取验证码生成对象</span></span><br><span class="line"><span class="keyword">var</span> <span class="built_in">cap</span> = captcha.New()</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> CaptchaInfor <span class="keyword">struct</span> &#123;</span><br><span class="line">	ImgID <span class="keyword">string</span></span><br><span class="line">	Img <span class="keyword">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">CreateCaptcha</span><span class="params">()</span><span class="title">CaptchaInfor</span></span>&#123;</span><br><span class="line">	<span class="comment">//加载字体（预先下载字体并加载）</span></span><br><span class="line">	<span class="keyword">if</span> err := <span class="built_in">cap</span>.SetFont(share.CONF.Font); err != <span class="literal">nil</span> &#123;</span><br><span class="line">		logrus.Error(err.Error())</span><br><span class="line">		<span class="keyword">return</span> CaptchaInfor&#123;&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//设置验证码</span></span><br><span class="line">	<span class="built_in">cap</span>.SetSize(<span class="number">128</span>, <span class="number">64</span>)</span><br><span class="line">	<span class="built_in">cap</span>.SetDisturbance(captcha.MEDIUM)</span><br><span class="line">	<span class="built_in">cap</span>.SetFrontColor(color.RGBA&#123;<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>&#125;)</span><br><span class="line">	<span class="built_in">cap</span>.SetBkgColor(color.RGBA&#123;<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>&#125;, color.RGBA&#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>, <span class="number">255</span>&#125;, color.RGBA&#123;<span class="number">0</span>, <span class="number">153</span>, <span class="number">0</span>, <span class="number">255</span>&#125;)</span><br><span class="line">	img, _ := <span class="built_in">cap</span>.Create(<span class="number">6</span>, captcha.ALL)</span><br><span class="line">	emptyBuff := bytes.NewBuffer(<span class="literal">nil</span>)</span><br><span class="line">	_ = png.Encode(emptyBuff, img)</span><br><span class="line">	<span class="comment">//生产图片id</span></span><br><span class="line">	worker, _ := NewWorker(WorkedId)</span><br><span class="line">	<span class="comment">//base64加密 传输图片</span></span><br><span class="line">	<span class="keyword">return</span> CaptchaInfor&#123;ImgID: strconv.FormatInt(worker.GetId(), <span class="number">10</span>),Img: <span class="string">&quot;data:image/png;base64,&quot;</span> + base64.StdEncoding.EncodeToString(emptyBuff.Bytes())&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
 
-<h3 id="2-邮件发送功能实现"><a href="#2-邮件发送功能实现" class="headerlink" title="2. 邮件发送功能实现"></a>2. 邮件发送功能实现</h3><blockquote>
-<p>简单实现邮件发送功能</p>
-</blockquote>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">   host := <span class="string">&quot;host&quot;</span></span><br><span class="line">auth := smtp.PlainAuth(<span class="string">&quot;&quot;</span>, <span class="string">&quot;username&quot;</span>, <span class="string">&quot;password&quot;</span>, host)</span><br><span class="line">em := email.NewEmail()</span><br><span class="line"><span class="comment">// 设置 sender 发送方 的邮箱 ， 此处可以填写自己的邮箱</span></span><br><span class="line">em.From = <span class="string">&quot;发送方&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置 receiver 接收方 的邮箱  此处也可以填写自己的邮箱， 就是自己发邮件给自己</span></span><br><span class="line">em.To = []<span class="keyword">string</span>&#123;<span class="string">&quot;接收方&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置主题</span></span><br><span class="line">em.Subject = <span class="string">&quot;邮件题目&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 简单设置文件发送的内容，暂时设置成纯文本</span></span><br><span class="line">captcha := tool.CreateCaptcha()</span><br><span class="line">em.HTML = []<span class="keyword">byte</span>(<span class="string">&quot;&lt;h2&gt;golang 邮件测试&lt;/h2&gt;&quot;</span> +</span><br><span class="line">	<span class="string">&quot;&lt;p&gt;验证码信息:&lt;/p&gt;&quot;</span> +</span><br><span class="line">	<span class="string">&quot;&lt;img src=&#x27;&quot;</span> + captcha.Img + <span class="string">&quot;&#x27;/&gt;&quot;</span>)</span><br><span class="line"><span class="comment">//设置服务器相关的配置</span></span><br><span class="line">err := em.SendWithTLS(<span class="string">&quot;邮件服务器域名:465&quot;</span>, auth, &amp;tls.Config&#123;ServerName: host, InsecureSkipVerify: <span class="literal">true</span>&#125;)</span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">	log.Fatal(err.Error())</span><br><span class="line">&#125;</span><br><span class="line">log.Println(<span class="string">&quot;send successfully ... &quot;</span>)</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>佛渡有缘人，施主扫微信<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/weixin.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
         </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2021/10/20/golang%E9%82%AE%E7%AE%B1%E5%8F%91%E9%80%81%E9%AA%8C%E8%AF%81%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
   
   
-    <a href="/2021/10/16/Mycat%20%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%BA%94%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">mycat简单入门</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -376,9 +247,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
@@ -454,7 +325,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">mysql相关概念</a>
+                <a href="javascript:void(0)" class="js-tag color2">mycat数据库中间件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">sftp数据传输服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -466,11 +341,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微服务架构</a>
+                <a href="javascript:void(0)" class="js-tag color1">spring cloud alibaba微服务架构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">spring框架入门</a>
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
             
             <div class="clearfix"></div>
