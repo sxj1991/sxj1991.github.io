@@ -6,19 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>数据库多表查询 | 睡着的羊</title>
+  <title>Tag: golang | 睡着的羊</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="多表查询1234567* 多表查询： select * from 表名1，表名2；  1.笛卡尔积：多表查询时，会取两个集合的所有组成情况（即表1和表2产生错误的查询结果）   * 完成多表查询，需要消除无用的数据  2.多表查询的分类：   * 内连接查询   * 外连接查询   * 子查询 多表查询-内连接">
-<meta property="og:type" content="article">
-<meta property="og:title" content="数据库多表查询">
-<meta property="og:url" content="http://yoursite.com/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="睡着的羊">
+<meta property="og:url" content="http://yoursite.com/tags/golang/index.html">
 <meta property="og:site_name" content="睡着的羊">
-<meta property="og:description" content="多表查询1234567* 多表查询： select * from 表名1，表名2；  1.笛卡尔积：多表查询时，会取两个集合的所有组成情况（即表1和表2产生错误的查询结果）   * 完成多表查询，需要消除无用的数据  2.多表查询的分类：   * 内连接查询   * 外连接查询   * 子查询 多表查询-内连接">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2017-09-06T08:05:15.000Z">
-<meta property="article:modified_time" content="2021-10-30T02:03:54.000Z">
 <meta property="article:author" content="鄙人，孙肥肥">
-<meta property="article:tag" content="mysql">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="睡着的羊" type="application/atom+xml">
@@ -160,201 +155,100 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-数据库多表查询" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      数据库多表查询
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2021" class="archive-year">2021</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2021/10/30/Cobra%20%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8/" class="archive-article-date">
+     
+  	<time datetime="2021-10-30T01:03:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-30</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2021/10/30/Cobra%20%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8/">Cobra 简单使用入门</a>
     </h1>
   
 
-        
-        <a href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/" class="archive-article-date">
-    
-        <!-- 不蒜子统计 -->
-        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
-              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
-        </span>
-     
-  	<time datetime="2017-09-06T08:05:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">* 多表查询： select * from 表名1，表名2；</span><br><span class="line">  1.笛卡尔积：多表查询时，会取两个集合的所有组成情况（即表1和表2产生错误的查询结果）</span><br><span class="line">   * 完成多表查询，需要消除无用的数据</span><br><span class="line">  2.多表查询的分类：</span><br><span class="line">   * 内连接查询</span><br><span class="line">   * 外连接查询</span><br><span class="line">   * 子查询</span><br></pre></td></tr></table></figure>
-<h4 id="多表查询-内连接"><a href="#多表查询-内连接" class="headerlink" title="多表查询-内连接"></a>多表查询-内连接</h4><a id="more"></a>
-
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">* 隐式内连接：使用where条件消除无用的数据</span><br><span class="line">     1. 语法结构：</span><br><span class="line">     <span class="keyword">SELECT</span> emp.<span class="string">`NAME`</span>,gender,dept.<span class="string">`NAME`</span> <span class="keyword">FROM</span> dept, emp <span class="keyword">WHERE</span> dept.<span class="string">`id`</span>=emp.<span class="string">`dept_id`</span>;</span><br><span class="line">     2. 实际开发中的sql语句sql语句：</span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">     t1.<span class="string">`NAME`</span>,  <span class="comment">-- 员工姓名</span></span><br><span class="line">     t1.<span class="string">`gender`</span>,<span class="comment">-- 员工性别</span></span><br><span class="line">     t2.<span class="string">`NAME`</span><span class="comment">-- 部门</span></span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">      emp <span class="keyword">AS</span> t1, <span class="comment">-- 别名</span></span><br><span class="line">      dept <span class="keyword">AS</span> t2</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">      t1.<span class="string">`dept_id`</span> = t2.<span class="string">`id`</span>; <span class="comment">-- 条件</span></span><br><span class="line">    </span><br><span class="line">* 显式内连接：【】内容可省略</span><br><span class="line">  1. 语法结构： <span class="keyword">select</span> 字段列表 <span class="keyword">from</span> 表名<span class="number">1</span> 【<span class="keyword">inner</span>】 <span class="keyword">join</span> 表名<span class="number">2</span> <span class="keyword">on</span> 条件</span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">     t1.<span class="string">`NAME`</span>,  <span class="comment">-- 员工姓名</span></span><br><span class="line">     t1.<span class="string">`gender`</span>,<span class="comment">-- 员工性别</span></span><br><span class="line">     t2.<span class="string">`NAME`</span><span class="comment">-- 部门</span></span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">     emp <span class="keyword">AS</span> t1</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span></span><br><span class="line">     dept <span class="keyword">AS</span> t2</span><br><span class="line"><span class="keyword">ON</span></span><br><span class="line">     t1.<span class="string">`dept_id`</span> = t2.<span class="string">`id`</span>; <span class="comment">-- 条件</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>内连接注意事项<ol>
-<li>从哪些表中查询数据（确认表）</li>
-<li>条件是什么？（确认查询条件）</li>
-<li>查询哪些字段（确认需要的数据）</li>
-</ol>
-</li>
-</ul>
-<h4 id="多表查询-外连接"><a href="#多表查询-外连接" class="headerlink" title="多表查询-外连接"></a>多表查询-外连接</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 左外连接：</span><br><span class="line"> 1. 语法：<span class="keyword">select</span> 字段列表  <span class="keyword">from</span>  表名<span class="number">1</span> <span class="keyword">left</span> 【<span class="keyword">outer</span>】 <span class="keyword">join</span> 表名<span class="number">2</span> <span class="keyword">on</span> 条件；</span><br><span class="line"> <span class="number">2.</span> 查询的是左表所有数据以及交集部分</span><br><span class="line">* 右外连接：</span><br><span class="line"> <span class="number">1.</span> 语法：<span class="keyword">select</span> 字段列表  <span class="keyword">from</span>  表名<span class="number">1</span> <span class="keyword">right</span> 【<span class="keyword">outer</span>】 <span class="keyword">join</span> 表名<span class="number">2</span> <span class="keyword">on</span> 条件；</span><br><span class="line"> <span class="number">2.</span> 查询的是右表所有数据以及交集部分</span><br></pre></td></tr></table></figure>
-<h4 id="多表查询-子查询"><a href="#多表查询-子查询" class="headerlink" title="多表查询-子查询"></a>多表查询-子查询</h4><h5 id="子查询概述"><a href="#子查询概述" class="headerlink" title="子查询概述"></a>子查询概述</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">* 概述：查询中嵌套查询，称 嵌套查询为子查询</span><br><span class="line">* sql语句演示：</span><br><span class="line">1. 传统sql语句：</span><br><span class="line">   <span class="keyword">select</span> <span class="keyword">max</span>（列表字段） <span class="keyword">from</span> 表名<span class="number">1</span> ； <span class="comment">-- 得到列表字段最大值</span></span><br><span class="line">   <span class="keyword">select</span> <span class="keyword">name</span> <span class="keyword">from</span> 表名<span class="number">1</span> <span class="keyword">where</span> 列表字段=<span class="keyword">max</span>（列表字段）；<span class="comment">--查询 所属列表字段的姓名</span></span><br><span class="line"><span class="number">2.</span> 子查询演示（简化了<span class="keyword">sql</span>查询语句）：</span><br><span class="line">   <span class="keyword">select</span> <span class="keyword">name</span> <span class="keyword">from</span> 表名<span class="number">1</span> <span class="keyword">where</span> = （<span class="keyword">select</span> <span class="keyword">max</span>（列表字段） <span class="keyword">from</span> 表名<span class="number">1</span>）；</span><br></pre></td></tr></table></figure>
-<h5 id="子查询不同情况分析"><a href="#子查询不同情况分析" class="headerlink" title="子查询不同情况分析"></a>子查询不同情况分析</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"> * 子查询的结果是单行单列的：</span><br><span class="line">   1. 子查询可以作为“条件”，使用运算符去判断</span><br><span class="line">   2. 需求练习：查询公司小云平均工资员工（单行 单列 指条件单一）</span><br><span class="line">   <span class="keyword">SELECT</span> <span class="keyword">id</span>,<span class="keyword">NAME</span>,salary <span class="keyword">FROM</span> emp <span class="keyword">WHERE</span> salary&lt; (<span class="keyword">SELECT</span> <span class="keyword">AVG</span>(salary) <span class="keyword">FROM</span> emp);	</span><br><span class="line"></span><br><span class="line"> * 子查询的结果是多行单列的：</span><br><span class="line">   1. 子查询可以作为“条件”，使用运算符in判断</span><br><span class="line">   2. 需求练习：查询“财务部”、“市场部”员工信息</span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">	emp.<span class="string">`NAME`</span>,emp.<span class="string">`gender`</span>,dept.<span class="string">`NAME`</span>  <span class="comment">-- 字段列名 员工姓名 性别 部门</span></span><br><span class="line"><span class="keyword">FROM</span> </span><br><span class="line">	emp ,dept <span class="comment">-- 表名 员工表 部门表</span></span><br><span class="line"><span class="keyword">WHERE</span> </span><br><span class="line">	dept_id <span class="keyword">IN</span> (<span class="keyword">SELECT</span> <span class="keyword">id</span> <span class="keyword">FROM</span> dept <span class="keyword">WHERE</span> dept.<span class="string">`NAME`</span> <span class="keyword">IN</span> (<span class="string">&#x27;财务部&#x27;</span>,<span class="string">&#x27;市场部&#x27;</span>)) <span class="comment">-- 条件</span></span><br><span class="line"><span class="keyword">AND</span> </span><br><span class="line">	dept.<span class="string">`id`</span>=emp.<span class="string">`dept_id`</span>;  <span class="comment">-- 条件2</span></span><br><span class="line">	</span><br><span class="line">  * 子查询的结果是多行多列的：</span><br><span class="line">   1. 子查询可以作为一张虚拟表</span><br><span class="line">      <span class="comment">-- 查询员工入职日期是2011-11-11日之后的员工信息和部门信息</span></span><br><span class="line"><span class="comment">-- 子查询</span></span><br><span class="line">      <span class="keyword">SELECT</span> *（所有字段列表）</span><br><span class="line">      <span class="keyword">FROM</span> </span><br><span class="line">        dept t1 ,  (<span class="keyword">SELECT</span> * <span class="keyword">FROM</span> emp <span class="keyword">WHERE</span> emp.<span class="string">`join_date`</span> &gt; <span class="string">&#x27;2011-11-11&#x27;</span>) <span class="keyword">as</span>  t2 （t2是筛选条件结果的虚拟表）</span><br><span class="line">      <span class="keyword">WHERE</span></span><br><span class="line">         t1.id = t2.dept_id;</span><br><span class="line"><span class="comment">-- 普通内连接</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> emp t1,dept t2 <span class="keyword">WHERE</span> t1.<span class="string">`dept_id`</span> = t2.<span class="string">`id`</span> <span class="keyword">AND</span> t1.<span class="string">`join_date`</span> &gt;  <span class="string">&#x27;2011-11-11&#x27;</span></span><br></pre></td></tr></table></figure>
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>佛渡有缘人，施主扫微信<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/weixin.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
-  
-    <a href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%8B%E5%8A%A1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          数据库事务管理
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1(%E5%A4%9A%E8%A1%A8%E3%80%81%E8%8C%83%E5%BC%8F)/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">数据库设计（范式，多表关系）</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2021/10/20/golang%E9%82%AE%E7%AE%B1%E5%8F%91%E9%80%81%E9%AA%8C%E8%AF%81%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/" class="archive-article-date">
+     
+  	<time datetime="2021-10-20T08:05:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-20</time>
+</a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
+    	 
   
-  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2021/10/20/golang%E9%82%AE%E7%AE%B1%E5%8F%91%E9%80%81%E9%AA%8C%E8%AF%81%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/">go邮箱发送验证简单实现</a>
+    </h1>
   
 
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
   
 
-  
-
-  
+    
 
 
           </div>
@@ -392,9 +286,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

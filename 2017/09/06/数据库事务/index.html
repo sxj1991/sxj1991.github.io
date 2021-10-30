@@ -16,7 +16,7 @@
 <meta property="og:description" content="事务基本介绍 事务概念：如果一个包含多个步骤的业务操作，被事务管理，操作要么同时成功，反之则同时失败。  操作步骤：1.开启事物：start transaction；2.回滚：rollback；3.提交：commit；  Mysql数据库中事务默认自动提交1.自动提交：  MySQL就是自动提交的 DML（增删改）语句会自动提交一次事务  2.手动提交：  Oracle 数据库是默认手动提交事务">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2017-09-06T08:05:15.000Z">
-<meta property="article:modified_time" content="2020-11-29T12:20:12.000Z">
+<meta property="article:modified_time" content="2021-10-30T02:04:20.000Z">
 <meta property="article:author" content="鄙人，孙肥肥">
 <meta property="article:tag" content="mysql">
 <meta name="twitter:card" content="summary">
@@ -209,11 +209,9 @@
 </ul>
 </li>
 </ul>
-<hr>
 <h3 id="事务的四大特征"><a href="#事务的四大特征" class="headerlink" title="事务的四大特征"></a>事务的四大特征</h3><ul>
 <li>事务特征：<br>1.原子性：是不可分割的最小操作单位，要么同时成功，要么同时失败<br>2.持久性：当事务提交或回滚后，数据库会持久化的保存数据<br>3.隔离性：事务之间相互独立，互不影响<br>4.一致性：事务操作前后，数据总量不变</li>
 </ul>
-<hr>
 <h3 id="事务的隔离级别（了解）"><a href="#事务的隔离级别（了解）" class="headerlink" title="事务的隔离级别（了解）"></a>事务的隔离级别（了解）</h3><ul>
 <li><p>概念：多个事务之间隔离的，相互独立的。但如果多个事务操作同一批数据，则会引发一些问题，设置不同的隔离级别就可以解决这些问题</p>
 </li>
@@ -337,18 +335,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93DQL%E6%9F%A5%E8%AF%A2%E8%A1%A8%E4%B8%AD%E8%AE%B0%E5%BD%95/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          数据库多表查询
+          数据库DQL查询语句
         
       </div>
     </a>
   
   
-    <a href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1(%E5%A4%9A%E8%A1%A8%E3%80%81%E8%8C%83%E5%BC%8F)/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">数据库设计（范式，多表关系）</div>
+    <a href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数据库多表查询</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -501,11 +499,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color2">golang</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">sftp数据传输服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
