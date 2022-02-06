@@ -157,19 +157,19 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-数据库事务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-数据库DQL查询表中记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%8B%E5%8A%A1/">数据库事务管理</a>
+      <a class="article-title" href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93DQL%E6%9F%A5%E8%AF%A2%E8%A1%A8%E4%B8%AD%E8%AE%B0%E5%BD%95/">数据库DQL查询语句</a>
     </h1>
   
 
         
-        <a href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%8B%E5%8A%A1/" class="archive-article-date">
+        <a href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93DQL%E6%9F%A5%E8%AF%A2%E8%A1%A8%E4%B8%AD%E8%AE%B0%E5%BD%95/" class="archive-article-date">
      
   	<time datetime="2017-09-06T08:05:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-06</time>
 </a>
@@ -178,23 +178,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="事务基本介绍"><a href="#事务基本介绍" class="headerlink" title="事务基本介绍"></a>事务基本介绍</h3><ul>
-<li><p>事务概念：如果一个包含多个步骤的业务操作，被事务管理，操作要么同时成功，反之则同时<br>失败。</p>
-</li>
-<li><p>操作步骤：<br>1.开启事物：start transaction；<br>2.回滚：rollback；<br>3.提交：commit；</p>
-</li>
-<li><p>Mysql数据库中事务默认自动提交<br>1.自动提交：</p>
-<ul>
-<li>MySQL就是自动提交的</li>
-<li>DML（增删改）语句会自动提交一次事务</li>
-</ul>
-<p>2.手动提交：</p>
-<ul>
-<li><p>Oracle 数据库是默认手动提交事务</p>
-</li>
-<li><p>需要先开启事务，在提交</p>
-</li>
-<li><p>修改事务的默认方式：<br>1.查看事务的默认提交方式： select @@autocommit； 1代表自动提交 0代表手动提交<br>2.修改事务默认提交方式： set @@autocommit = 0 ；改成手动提交</p>
+        <h3 id="DQL-查询表中的记录："><a href="#DQL-查询表中的记录：" class="headerlink" title="DQL:查询表中的记录："></a>DQL:查询表中的记录：</h3><p>1.基础查询<br>2.条件查询<br>3.排序查询<br>4.聚合函数<br>5.分组查询<br>6.分页查询</p>
         
       
 
@@ -218,7 +202,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%8B%E5%8A%A1/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93DQL%E6%9F%A5%E8%AF%A2%E8%A1%A8%E4%B8%AD%E8%AE%B0%E5%BD%95/">展开全文 >></a>
         </p>
       
 
@@ -295,6 +279,97 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-数据库事务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%8B%E5%8A%A1/">数据库事务管理</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%8B%E5%8A%A1/" class="archive-article-date">
+     
+  	<time datetime="2017-09-06T08:05:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="事务基本介绍"><a href="#事务基本介绍" class="headerlink" title="事务基本介绍"></a>事务基本介绍</h3><ul>
+<li><p>事务概念：如果一个包含多个步骤的业务操作，被事务管理，操作要么同时成功，反之则同时<br>失败。</p>
+</li>
+<li><p>操作步骤：<br>1.开启事物：start transaction；<br>2.回滚：rollback；<br>3.提交：commit；</p>
+</li>
+<li><p>Mysql数据库中事务默认自动提交<br>1.自动提交：</p>
+<ul>
+<li>MySQL就是自动提交的</li>
+<li>DML（增删改）语句会自动提交一次事务</li>
+</ul>
+<p>2.手动提交：</p>
+<ul>
+<li><p>Oracle 数据库是默认手动提交事务</p>
+</li>
+<li><p>需要先开启事务，在提交</p>
+</li>
+<li><p>修改事务的默认方式：<br>1.查看事务的默认提交方式： select @@autocommit； 1代表自动提交 0代表手动提交<br>2.修改事务默认提交方式： set @@autocommit = 0 ；改成手动提交</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%8B%E5%8A%A1/">展开全文 >></a>
         </p>
       
 
@@ -681,7 +756,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2021 鄙人，孙肥肥
+    		&copy; 2022 鄙人，孙肥肥
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a>
@@ -783,10 +858,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
@@ -795,11 +866,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">sftp数据传输服务</a>
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">cucumber单元测试</a>
+                <a href="javascript:void(0)" class="js-tag color1">sftp数据传输服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -807,11 +878,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">spring cloud alibaba微服务架构</a>
+                <a href="javascript:void(0)" class="js-tag color3">cucumber单元测试</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">spring cloud alibaba微服务架构</a>
               </li>
             
             <div class="clearfix"></div>
